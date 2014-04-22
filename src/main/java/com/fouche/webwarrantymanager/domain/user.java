@@ -6,10 +6,82 @@
 
 package com.fouche.webwarrantymanager.domain;
 
+import java.rmi.server.UID;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author foosh
  */
+@Entity
 public class user {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    //PRIMARY KEY
+    private String email;
+    //ATTRIBUTES
+    private String pwd;
+    private String name;
+    private String surname;
+    private String contact;
+    private String address;
     
+    private user(){}
+    
+    private user(Builder builder){
+        email = builder.email;
+        pwd = builder.pwd;
+        name = builder.name;
+        surname = builder.surname;
+        contact = builder.contact;
+        address = builder.address;
+    }
+    
+    public static class Builder{
+        private static final long serialVersionUID = 1L;
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        //PRIMARY KEY
+        private String email;
+        //ATTRIBUTES
+        private String pwd;
+        private String name;
+        private String surname;
+        private String contact;
+        private String address;
+        
+        Builder(){}
+        
+        public Builder email(String value){
+            email = value;
+            return this;
+        }
+        public Builder pwd(String value){
+            pwd = value;
+            return this;
+        }
+        public Builder name(String value){
+            name = value;
+            return this;
+        }
+        public Builder surname(String value){
+            surname = value;
+            return this;
+        }
+        public Builder contact(String value){
+            contact = value;
+            return this;
+        }
+        public Builder address(String value){
+            address = value;
+            return this;
+        }
+        public user build(){
+            return new user(this);
+        }
+    }
 }
