@@ -44,15 +44,15 @@ public class warranty {
         private int replaceDuration;
         private int repairDuration;
         
-        public Builder warrantyID(String value){
+        public Builder setWarrantyID(String value){
             warrantyID = value;
             return this;
         }
-        public Builder replaceDuration(int value){
+        public Builder setReplaceDuration(int value){
             replaceDuration = value;
             return this;
         }
-        public Builder repairDuration(int value){
+        public Builder setRepairDuration(int value){
             repairDuration = value;
             return this;
         }

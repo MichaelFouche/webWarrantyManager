@@ -46,17 +46,17 @@ public class products {
         
         public Builder(){}
         
-        public Builder productID(String value){
+        public Builder setProductID(String value){
             productID = value;
             return this;
         }
         
-        public Builder make(String value){
+        public Builder setMake(String value){
             make = value;
             return this;
         }
         
-        public Builder model(String value){
+        public Builder setModel(String value){
             model = value;
             return this;
         }

@@ -54,29 +54,29 @@ public class user {
         private String contact;
         private String address;
         
-        Builder(){}
+        public Builder(){}
         
-        public Builder email(String value){
+        public Builder setEmail(String value){
             email = value;
             return this;
         }
-        public Builder pwd(String value){
+        public Builder setPwd(String value){
             pwd = value;
             return this;
         }
-        public Builder name(String value){
+        public Builder setName(String value){
             name = value;
             return this;
         }
-        public Builder surname(String value){
+        public Builder setSurname(String value){
             surname = value;
             return this;
         }
-        public Builder contact(String value){
+        public Builder setContact(String value){
             contact = value;
             return this;
         }
-        public Builder address(String value){
+        public Builder setAddress(String value){
             address = value;
             return this;
         }

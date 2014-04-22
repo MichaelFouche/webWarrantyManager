@@ -64,27 +64,27 @@ public class unit {
         
         public Builder(){}
         
-        public Builder unitID(String value){
+        public Builder setUnitID(String value){
             unitID = value;
             return this;
         }
-        public Builder purchaseDate(Date value){
+        public Builder setPurchaseDate(Date value){
             purchaseDate = value;
             return this;
         }
-        public Builder sn(String value){
+        public Builder setSn(String value){
             sn = value;
             return this;
         }
-        public Builder retailerID(String value){
+        public Builder setRetailerID(String value){
             retailerID = value;
             return this;
         }
-        public Builder warrantyID(String value){
+        public Builder setWarrantyID(String value){
             warrantyID = value;
             return this;
         }
-        public Builder productID(String value){
+        public Builder setProductID(String value){
             productID = value;
             return this;
         }

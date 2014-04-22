@@ -53,15 +53,15 @@ public class retailer {
             retailerID = value;
             return this;
         }
-        public Builder name(String value){
+        public Builder setName(String value){
             name = value;
             return this;
         }
-        public Builder address(String value){
+        public Builder setAddress(String value){
             address = value;
             return this;
         }
-        public Builder contact(String value){
+        public Builder setContact(String value){
             contact = value;
             return this;
         }
