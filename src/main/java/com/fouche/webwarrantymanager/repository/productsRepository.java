@@ -6,15 +6,13 @@
 
 package com.fouche.webwarrantymanager.repository;
 
-import com.fouche.webwarrantymanager.domain.unit;
+import com.fouche.webwarrantymanager.domain.products;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 /**
  *
  * @author foosh
  */
-@Repository
-public interface unitRepository extends JpaRepository<unit, String>{
+public interface productsRepository  extends JpaRepository<products, String>{
     
 }
