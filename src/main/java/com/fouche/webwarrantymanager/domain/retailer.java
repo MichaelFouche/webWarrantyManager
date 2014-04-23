@@ -49,7 +49,7 @@ public class retailer {
         
         public Builder(){}
         
-        public Builder retailerID(long value){
+        public Builder setRetailerID(long value){
             retailerID = value;
             return this;
         }

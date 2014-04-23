@@ -7,8 +7,11 @@ package fouche.webwarrantymanager;
  */
 
 import com.fouche.webwarrantymanager.app.conf.connectionConfig;
+import com.fouche.webwarrantymanager.domain.products;
+import com.fouche.webwarrantymanager.domain.retailer;
 import com.fouche.webwarrantymanager.domain.unit;
 import com.fouche.webwarrantymanager.domain.user;
+import com.fouche.webwarrantymanager.domain.warranty;
 import com.fouche.webwarrantymanager.repository.productsRepository;
 import com.fouche.webwarrantymanager.repository.retailerRepository;
 import com.fouche.webwarrantymanager.repository.unitRepository;
@@ -38,9 +41,13 @@ public class test {
     private retailerRepository retailerRepo;
     private userRepository userRepo;
     private warrantyRepository warrantyRepo;
-    private String unitID;
-    private String productID;
     
+    private long unitID;
+    private long retailerID;
+    private long warrantyID;
+    private long productID;
+    private String email;
+
     
     public test() {
     }
@@ -59,15 +66,17 @@ public class test {
         retailerRepo = ctx.getBean(retailerRepository.class);        
         userRepo = ctx.getBean(userRepository.class);       
         warrantyRepo = ctx.getBean(warrantyRepository.class);
+        
+        
             
         Date d = new Date(1991,07,8);
-        unit u = new unit.Builder()
+        unit un = new unit.Builder()
                 .setPurchaseDate(d)
                 .setSn("123A321")
                 .build();
         
         user us = new user.Builder() 
-                .setEmail("a@c.com")
+                .setEmail(un.getEmail())
                 .setPwd("")
                 .setName("")
                 .setSurname("")
@@ -75,48 +84,54 @@ public class test {
                 .setAddress("")
                 .build();
         
-        unitRepo.save(u);
-       /* songID = s.getId();
-        songs.add(s);
-        
-        CD c = new CD.Builder()
-                .setAlbum(a.getName())
-                .setArtist("Dance Gavin Dance")
-                .setSongID(songID)
+        products prod = new products.Builder()
+                .setProductID(un.getProductID())
+                .setMake("")
+                .setModel("")
                 .build();
         
-        Vinyl v = new Vinyl.Builder()
-                .setAlbum(a.getName())
-                .setArtist("Dance Gavin Dance")
-                //.setSongList(songs)
+        retailer retail = new retailer.Builder()
+                .setRetailerID(un.getRetailerID())
+                .setName("")
+                .setAddress("")
+                .setContact("")
                 .build();
-        
-        Album b = new Album.Builder()
-                .Album(a)
-                .setCd(c)
-                .setVinyl(v)
+        warranty warr = new warranty.Builder()
+                .setWarrantyID(un.getWarrantyID())
+                .setReplaceDuration(5)
+                .setRepairDuration(5)
                 .build();
                 
-        albumRepo.save(b);
-        id = b.getId();
-        Assert.assertNotNull(b);
-        */
-    }/*
+        unitRepo.save(un);
+        productsRepo.save(prod); 
+        retailerRepo.save(retail);
+        userRepo.save(us);
+        warrantyRepo.save(warr);
+        
+       
+        unitID = un.getUnitID();
+        retailerID = un.getRetailerID();
+        warrantyID = un.getWarrantyID();
+        productID = un.getProductID();
+        email = un.getEmail();
+        
+    }
     @Test(dependsOnMethods = "createUnit")
-    public void readAlbum(){
-        albumRepo = ctx.getBean(AlbumRepository.class);
-        Album album = albumRepo.findOne(id);
-        Assert.assertEquals(album.getName(), "Downtown Battle Mountain II");
+    public void readUnit(){
+        unitRepo = ctx.getBean(unitRepository.class);
+        unit un = unitRepo.findOne(email);
+        Date d = new Date(1991,07,8);
+        Assert.assertEquals(un.getPurchaseDate(), d);
     }
     
-    @Test(dependsOnMethods = "createAlbum")
-    private void updateAlbum(){
-        albumRepo = ctx.getBean(AlbumRepository.class);
+    @Test(dependsOnMethods = "readUnit")
+    private void updateUnit(){
+        unitRepo = ctx.getBean(unitRepository.class);
     }
-    
-    @Test(dependsOnMethods = "updateAlbum")
-    private void deleteAlbum(){
-        albumRepo = ctx.getBean(AlbumRepository.class);
+    /*
+    @Test(dependsOnMethods = "updateUnit")
+    private void deleteUnit(){
+        unitRepo = ctx.getBean(unitRepository.class);
         albumRepo.delete(id);
         songRepo.delete(songID);
         Song song = songRepo.findOne(songID);

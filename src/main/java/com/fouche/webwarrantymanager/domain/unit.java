@@ -21,7 +21,7 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class unit {
-     private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //Primary Key
@@ -30,12 +30,23 @@ public class unit {
     private Date purchaseDate;
     private String sn;
     //Foreign Keys
-    private String retailerID;
-    private String warrantyID;
-    private long productID;
-    
-    //@OneToMany(cascade = CascadeType.ALL)
-    //@JoinColumn(name="album_id")
+    private long retailerID;
+    private long warrantyID;
+    private long productID;   
+    private String email;
+    //objects
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="retailerID")
+    retailer retail;        
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="warrantyID")
+    warranty warr;        
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="productID")
+    products prod;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="email")
+    user use;
     
    private unit(){}
    
@@ -46,6 +57,10 @@ public class unit {
        retailerID = builder.retailerID;
        warrantyID = builder.warrantyID;
        productID = builder.productID;
+       email = builder.email;
+       retail = builder.retail;
+       warr = builder.warr;
+       prod = builder.prod;
    }
    //BUILDER CLASS
    public static class Builder{
@@ -58,9 +73,23 @@ public class unit {
         private Date purchaseDate;
         private String sn;
         //Foreign Keys
-        private String retailerID;
-        private String warrantyID;
+        private long retailerID;
+        private long warrantyID;
         private long productID;
+        private String email;
+        //objects
+        @OneToMany(cascade = CascadeType.ALL)
+        @JoinColumn(name="retailerID")
+        retailer retail;        
+        @OneToMany(cascade = CascadeType.ALL)
+        @JoinColumn(name="warrantyID")
+        warranty warr;        
+        @OneToMany(cascade = CascadeType.ALL)
+        @JoinColumn(name="productID")
+        products prod;
+        @OneToMany(cascade = CascadeType.ALL)
+        @JoinColumn(name="email")
+        user use;
         
         public Builder(){}
         
@@ -76,11 +105,11 @@ public class unit {
             sn = value;
             return this;
         }
-        public Builder setRetailerID(String value){
+        public Builder setRetailerID(long value){
             retailerID = value;
             return this;
         }
-        public Builder setWarrantyID(String value){
+        public Builder setWarrantyID(long value){
             warrantyID = value;
             return this;
         }
@@ -88,7 +117,27 @@ public class unit {
             productID = value;
             return this;
         }
-        
+        public Builder setEmail(String value){
+            email = value;
+            return this;
+        }
+        public Builder setRetailer(retailer value){
+            retail = value;
+            return this;
+        }
+        public Builder setWarranty(warranty value){
+            warr = value;
+            return this;
+        }
+        public Builder setProduct(products value){
+            prod = value;
+            return this;
+        }
+        public Builder setUser(user value){
+            use = value;
+            return this;
+        }
+                
         public unit build(){
             return new unit(this);
         }
@@ -107,16 +156,35 @@ public class unit {
         return sn;
     }
 
-    public String getRetailerID() {
+    public long getRetailerID() {
         return retailerID;
     }
 
-    public String getWarrantyID() {
+    public long getWarrantyID() {
         return warrantyID;
     }
 
     public long getProductID() {
         return productID;
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public retailer getRetail() {
+        return retail;
+    }
+
+    public warranty getWarr() {
+        return warr;
+    }
+
+    public products getProd() {
+        return prod;
+    }
+
+    public user getUser() {
+        return use;
     }
 
     @Override
