@@ -21,7 +21,7 @@ public class retailer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //Primary key
-    private String retailerID;
+    private long retailerID;
     //Attributes
     private String name;
     private String address;
@@ -41,7 +41,7 @@ public class retailer {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         //Primary key
-        private String retailerID;
+        private long retailerID;
         //Attributes
         private String name;
         private String address;
@@ -49,7 +49,7 @@ public class retailer {
         
         public Builder(){}
         
-        public Builder retailerID(String value){
+        public Builder retailerID(long value){
             retailerID = value;
             return this;
         }
@@ -68,6 +68,28 @@ public class retailer {
         public retailer build(){
             return new retailer(this);
         }
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 41 * hash + (int) (this.retailerID ^ (this.retailerID >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final retailer other = (retailer) obj;
+        if (this.retailerID != other.retailerID) {
+            return false;
+        }
+        return true;
     }
     
 }

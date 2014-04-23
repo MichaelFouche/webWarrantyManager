@@ -21,7 +21,7 @@ public class warranty {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //Primary KEY
-    private String warrantyID;
+    private long warrantyID;
     //ATTRIBUTES
     private int replaceDuration;
     private int repairDuration;
@@ -39,12 +39,12 @@ public class warranty {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         //Primary KEY
-        private String warrantyID;
+        private long warrantyID;
         //ATTRIBUTES
         private int replaceDuration;
         private int repairDuration;
         
-        public Builder setWarrantyID(String value){
+        public Builder setWarrantyID(long value){
             warrantyID = value;
             return this;
         }
@@ -59,6 +59,28 @@ public class warranty {
         public warranty build(){
             return new warranty(this);
         }
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 19 * hash + (int) (this.warrantyID ^ (this.warrantyID >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final warranty other = (warranty) obj;
+        if (this.warrantyID != other.warrantyID) {
+            return false;
+        }
+        return true;
     }
     
 }

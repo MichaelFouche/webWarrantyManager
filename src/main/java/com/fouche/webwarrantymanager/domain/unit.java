@@ -25,14 +25,14 @@ public class unit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //Primary Key
-    private String unitID;
+    private long unitID;
     //Attributes
     private Date purchaseDate;
     private String sn;
     //Foreign Keys
     private String retailerID;
     private String warrantyID;
-    private String productID;
+    private long productID;
     
     //@OneToMany(cascade = CascadeType.ALL)
     //@JoinColumn(name="album_id")
@@ -53,18 +53,18 @@ public class unit {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         //Primary Key
-        private String unitID;
+        private long unitID;
         //Attributes
         private Date purchaseDate;
         private String sn;
         //Foreign Keys
         private String retailerID;
         private String warrantyID;
-        private String productID;
+        private long productID;
         
         public Builder(){}
         
-        public Builder setUnitID(String value){
+        public Builder setUnitID(long value){
             unitID = value;
             return this;
         }
@@ -84,7 +84,7 @@ public class unit {
             warrantyID = value;
             return this;
         }
-        public Builder setProductID(String value){
+        public Builder setProductID(long value){
             productID = value;
             return this;
         }
@@ -95,7 +95,7 @@ public class unit {
        
    }
    //GETTERS
-    public String getUnitID() {
+    public long getUnitID() {
         return unitID;
     }
 
@@ -115,8 +115,30 @@ public class unit {
         return warrantyID;
     }
 
-    public String getProductID() {
+    public long getProductID() {
         return productID;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 67 * hash + (int) (this.unitID ^ (this.unitID >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final unit other = (unit) obj;
+        if (this.unitID != other.unitID) {
+            return false;
+        }
+        return true;
     }
    
             
