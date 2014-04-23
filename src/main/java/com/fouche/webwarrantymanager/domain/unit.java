@@ -29,7 +29,7 @@ public class unit {
     private Long unitID;
      // needs to be long or string
     //Attributes
-    private Date purchaseDate;
+    private String purchaseDate;
     private String sn;
     //Foreign Keys
     private Long retailerID;
@@ -73,7 +73,7 @@ public class unit {
         //Primary Key
         
         //Attributes
-        private Date purchaseDate;
+        private String purchaseDate;
         private String sn;
         //Foreign Keys
         private Long retailerID;
@@ -100,7 +100,7 @@ public class unit {
             unitID = value;
             return this;
         }
-        public Builder setPurchaseDate(Date value){
+        public Builder setPurchaseDate(String value){
             purchaseDate = value;
             return this;
         }
@@ -151,7 +151,7 @@ public class unit {
         return unitID;
     }
 
-    public Date getPurchaseDate() {
+    public String getPurchaseDate() {
         return purchaseDate;
     }
 

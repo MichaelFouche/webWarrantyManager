@@ -69,9 +69,9 @@ public class test {
         
         
             
-        Date d = new Date(1991,07,8);
+        
         unit un = new unit.Builder()
-                .setPurchaseDate(d)
+                .setPurchaseDate("08-07-1991")
                 .setSn("123A321")
                 .build();
         
@@ -121,7 +121,7 @@ public class test {
     }
     @Test(dependsOnMethods = "createUnit")
     public void readUnit(){
-        unitRepo = ctx.getBean(unitRepository.class);
+        //unitRepo = ctx.getBean(unitRepository.class);
         unit un = unitRepo.findOne(unitID);
         //Date d = new Date(1991,07,8);
         //Assert.assertEquals(un.getPurchaseDate(), d);
