@@ -70,7 +70,27 @@ public class retailer {
             return new retailer(this);
         }
     }
+    //GETTERS
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
+    public String getRetailerID() {
+        return retailerID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

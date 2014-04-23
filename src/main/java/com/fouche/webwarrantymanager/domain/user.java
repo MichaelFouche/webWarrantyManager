@@ -23,8 +23,9 @@ public class user {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //PRIMARY KEY
-    private String email;
+    private Long userID;    
     //ATTRIBUTES
+    private String email;
     private String pwd;
     private String name;
     private String surname;
@@ -34,6 +35,7 @@ public class user {
     private user(){}
     
     private user(Builder builder){
+        userID = builder.userID;
         email = builder.email;
         pwd = builder.pwd;
         name = builder.name;
@@ -47,8 +49,9 @@ public class user {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         //PRIMARY KEY
-        private String email;
+        private Long userID;    
         //ATTRIBUTES
+        private String email;
         private String pwd;
         private String name;
         private String surname;
@@ -57,6 +60,10 @@ public class user {
         
         public Builder(){}
         
+        public Builder setUserID(Long value){
+            userID = value;
+            return this;
+        }
         public Builder setEmail(String value){
             email = value;
             return this;
@@ -86,10 +93,42 @@ public class user {
         }
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Long getUserID() {
+        return userID;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.email);
+        int hash = 5;
+        hash = 13 * hash + Objects.hashCode(this.userID);
         return hash;
     }
 
@@ -102,10 +141,12 @@ public class user {
             return false;
         }
         final user other = (user) obj;
-        if (!Objects.equals(this.email, other.email)) {
+        if (!Objects.equals(this.userID, other.userID)) {
             return false;
         }
         return true;
     }
+
+    
     
 }

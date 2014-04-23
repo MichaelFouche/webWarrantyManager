@@ -35,7 +35,7 @@ public class unit {
     private Long retailerID;
     private Long warrantyID;
     private Long productID;   
-    private String email;
+    private Long userID;
     //objects
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="retailer_ID")
@@ -47,7 +47,7 @@ public class unit {
     @JoinColumn(name="product_ID")
     products prod;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="email_user")
+    @JoinColumn(name="user_ID")
     user use;
     
    private unit(){}
@@ -59,7 +59,7 @@ public class unit {
        retailerID = builder.retailerID;
        warrantyID = builder.warrantyID;
        productID = builder.productID;
-       email = builder.email;
+       userID = builder.userID;
        retail = builder.retail;
        warr = builder.warr;
        prod = builder.prod;
@@ -79,7 +79,7 @@ public class unit {
         private Long retailerID;
         private Long warrantyID;
         private Long productID;
-        private String email;
+        private Long userID;
         //objects
         @OneToOne(cascade = CascadeType.ALL)
         @JoinColumn(name="retailer_ID")
@@ -91,7 +91,7 @@ public class unit {
         @JoinColumn(name="product_ID")
         products prod;
         @OneToOne(cascade = CascadeType.ALL)
-        @JoinColumn(name="email_user")
+        @JoinColumn(name="user_ID")
         user use;
         
         public Builder(){}
@@ -120,8 +120,8 @@ public class unit {
             productID = value;
             return this;
         }
-        public Builder setEmail(String value){
-            email = value;
+        public Builder setUserId(Long value){
+            userID = value;
             return this;
         }
         public Builder setRetailer(retailer value){
@@ -170,8 +170,8 @@ public class unit {
     public Long getProductID() {
         return productID;
     }
-    public String getEmail() {
-        return email;
+    public Long getUserID() {
+        return userID;
     }
 
     public retailer getRetail() {

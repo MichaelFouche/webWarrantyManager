@@ -62,6 +62,22 @@ public class warranty {
         }
     }
 
+    public static long getSerialVerionUID() {
+        return serialVerionUID;
+    }
+
+    public String getWarrantyID() {
+        return warrantyID;
+    }
+
+    public int getReplaceDuration() {
+        return replaceDuration;
+    }
+
+    public int getRepairDuration() {
+        return repairDuration;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
