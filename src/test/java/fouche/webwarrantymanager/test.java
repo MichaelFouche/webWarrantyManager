@@ -42,10 +42,10 @@ public class test {
     private userRepository userRepo;
     private warrantyRepository warrantyRepo;
     
-    private long unitID;
-    private long retailerID;
-    private long warrantyID;
-    private long productID;
+    private String unitID;
+    private String retailerID;
+    private String warrantyID;
+    private String productID;
     private String email;
 
     
@@ -102,7 +102,7 @@ public class test {
                 .setRepairDuration(5)
                 .build();
                 
-        unitRepo.save(un);
+        unitRepo.save(un);        
         productsRepo.save(prod); 
         retailerRepo.save(retail);
         userRepo.save(us);
@@ -129,17 +129,22 @@ public class test {
         unitRepo = ctx.getBean(unitRepository.class);
     }
     /*
+    
+     unitID;
+    retailerID;
+    warrantyID;
+    productID;
+     email;
+    */
     @Test(dependsOnMethods = "updateUnit")
     private void deleteUnit(){
         unitRepo = ctx.getBean(unitRepository.class);
-        albumRepo.delete(id);
-        songRepo.delete(songID);
-        Song song = songRepo.findOne(songID);
-        Album album = albumRepo.findOne(id);
-        Assert.assertNull(song);
-        Assert.assertNull(album);
+        unitRepo.delete(unitID);
+        productsRepo.delete(retailerID);
+        unit un = unitRepo.findOne(email);
+        Assert.assertEquals(un.getSn(),null);
         
-    }*/
+    }
     
     @BeforeClass
     public static void setUpClass() throws Exception {

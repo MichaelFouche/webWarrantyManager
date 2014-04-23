@@ -7,6 +7,7 @@
 package com.fouche.webwarrantymanager.domain;
 
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,14 +26,14 @@ public class unit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //Primary Key
-    private long unitID;
+    private String unitID;
     //Attributes
     private Date purchaseDate;
     private String sn;
     //Foreign Keys
-    private long retailerID;
-    private long warrantyID;
-    private long productID;   
+    private String retailerID;
+    private String warrantyID;
+    private String productID;   
     private String email;
     //objects
     @OneToMany(cascade = CascadeType.ALL)
@@ -68,14 +69,14 @@ public class unit {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         //Primary Key
-        private long unitID;
+        private String unitID;
         //Attributes
         private Date purchaseDate;
         private String sn;
         //Foreign Keys
-        private long retailerID;
-        private long warrantyID;
-        private long productID;
+        private String retailerID;
+        private String warrantyID;
+        private String productID;
         private String email;
         //objects
         @OneToMany(cascade = CascadeType.ALL)
@@ -93,7 +94,7 @@ public class unit {
         
         public Builder(){}
         
-        public Builder setUnitID(long value){
+        public Builder setUnitID(String value){
             unitID = value;
             return this;
         }
@@ -105,15 +106,15 @@ public class unit {
             sn = value;
             return this;
         }
-        public Builder setRetailerID(long value){
+        public Builder setRetailerID(String value){
             retailerID = value;
             return this;
         }
-        public Builder setWarrantyID(long value){
+        public Builder setWarrantyID(String value){
             warrantyID = value;
             return this;
         }
-        public Builder setProductID(long value){
+        public Builder setProductID(String value){
             productID = value;
             return this;
         }
@@ -144,7 +145,7 @@ public class unit {
        
    }
    //GETTERS
-    public long getUnitID() {
+    public String getUnitID() {
         return unitID;
     }
 
@@ -156,15 +157,15 @@ public class unit {
         return sn;
     }
 
-    public long getRetailerID() {
+    public String getRetailerID() {
         return retailerID;
     }
 
-    public long getWarrantyID() {
+    public String getWarrantyID() {
         return warrantyID;
     }
 
-    public long getProductID() {
+    public String getProductID() {
         return productID;
     }
     public String getEmail() {
@@ -189,8 +190,8 @@ public class unit {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + (int) (this.unitID ^ (this.unitID >>> 32));
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.unitID);
         return hash;
     }
 
@@ -203,11 +204,12 @@ public class unit {
             return false;
         }
         final unit other = (unit) obj;
-        if (this.unitID != other.unitID) {
+        if (!Objects.equals(this.unitID, other.unitID)) {
             return false;
         }
         return true;
     }
+
    
             
 }

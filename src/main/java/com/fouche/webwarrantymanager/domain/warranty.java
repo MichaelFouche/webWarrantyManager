@@ -6,6 +6,7 @@
 
 package com.fouche.webwarrantymanager.domain;
 
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +22,7 @@ public class warranty {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //Primary KEY
-    private long warrantyID;
+    private String warrantyID;
     //ATTRIBUTES
     private int replaceDuration;
     private int repairDuration;
@@ -39,12 +40,12 @@ public class warranty {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         //Primary KEY
-        private long warrantyID;
+        private String warrantyID;
         //ATTRIBUTES
         private int replaceDuration;
         private int repairDuration;
         
-        public Builder setWarrantyID(long value){
+        public Builder setWarrantyID(String value){
             warrantyID = value;
             return this;
         }
@@ -63,8 +64,8 @@ public class warranty {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 19 * hash + (int) (this.warrantyID ^ (this.warrantyID >>> 32));
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.warrantyID);
         return hash;
     }
 
@@ -77,10 +78,12 @@ public class warranty {
             return false;
         }
         final warranty other = (warranty) obj;
-        if (this.warrantyID != other.warrantyID) {
+        if (!Objects.equals(this.warrantyID, other.warrantyID)) {
             return false;
         }
         return true;
     }
+
+    
     
 }

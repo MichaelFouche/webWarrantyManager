@@ -6,6 +6,7 @@
 
 package com.fouche.webwarrantymanager.domain;
 
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +22,7 @@ public class products {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //Primary Key
-    private long productID;
+    private String productID;
     //Attributes
     private String make;
     private String model;
@@ -39,14 +40,14 @@ public class products {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         //Primary Key
-        private long productID;
+        private String productID;
         //Attributes
         private String make;
         private String model;
         
         public Builder(){}
         
-        public Builder setProductID(long value){
+        public Builder setProductID(String value){
             productID = value;
             return this;
         }
@@ -69,7 +70,7 @@ public class products {
     
 
     //GETTERS
-    public long getProductID() {
+    public String getProductID() {
         return productID;
     }
 
@@ -84,7 +85,7 @@ public class products {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 67 * hash + (int) (this.productID ^ (this.productID >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.productID);
         return hash;
     }
 
@@ -97,10 +98,14 @@ public class products {
             return false;
         }
         final products other = (products) obj;
-        if (this.productID != other.productID) {
+        if (!Objects.equals(this.productID, other.productID)) {
             return false;
         }
         return true;
     }
+
+    
+
+   
     
 }
