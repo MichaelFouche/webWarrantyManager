@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -25,28 +26,28 @@ public class unit {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //Primary Key
-    private String unitID;
+    private Long unitID;
+     // needs to be long or string
     //Attributes
     private Date purchaseDate;
     private String sn;
     //Foreign Keys
-    private String retailerID;
-    private String warrantyID;
-    private String productID;   
+    private Long retailerID;
+    private Long warrantyID;
+    private Long productID;   
     private String email;
     //objects
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="retailerID")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="retailer_ID")
     retailer retail;        
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="warrantyID")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="warranty_ID")
     warranty warr;        
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="productID")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="product_ID")
     products prod;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="email")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="email_user")
     user use;
     
    private unit(){}
@@ -68,33 +69,34 @@ public class unit {
         private static final long serialVersionUID = 1L;
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
+        private Long unitID;
         //Primary Key
-        private String unitID;
+        
         //Attributes
         private Date purchaseDate;
         private String sn;
         //Foreign Keys
-        private String retailerID;
-        private String warrantyID;
-        private String productID;
+        private Long retailerID;
+        private Long warrantyID;
+        private Long productID;
         private String email;
         //objects
-        @OneToMany(cascade = CascadeType.ALL)
-        @JoinColumn(name="retailerID")
+        @OneToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name="retailer_ID")
         retailer retail;        
-        @OneToMany(cascade = CascadeType.ALL)
-        @JoinColumn(name="warrantyID")
+        @OneToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name="warranty_ID")
         warranty warr;        
-        @OneToMany(cascade = CascadeType.ALL)
-        @JoinColumn(name="productID")
+        @OneToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name="product_ID")
         products prod;
-        @OneToMany(cascade = CascadeType.ALL)
-        @JoinColumn(name="email")
+        @OneToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name="email_user")
         user use;
         
         public Builder(){}
         
-        public Builder setUnitID(String value){
+        public Builder setUnitID(Long value){
             unitID = value;
             return this;
         }
@@ -106,15 +108,15 @@ public class unit {
             sn = value;
             return this;
         }
-        public Builder setRetailerID(String value){
+        public Builder setRetailerID(Long value){
             retailerID = value;
             return this;
         }
-        public Builder setWarrantyID(String value){
+        public Builder setWarrantyID(Long value){
             warrantyID = value;
             return this;
         }
-        public Builder setProductID(String value){
+        public Builder setProductID(Long value){
             productID = value;
             return this;
         }
@@ -145,7 +147,7 @@ public class unit {
        
    }
    //GETTERS
-    public String getUnitID() {
+    public Long getUnitID() {
         return unitID;
     }
 
@@ -157,15 +159,15 @@ public class unit {
         return sn;
     }
 
-    public String getRetailerID() {
+    public Long getRetailerID() {
         return retailerID;
     }
 
-    public String getWarrantyID() {
+    public Long getWarrantyID() {
         return warrantyID;
     }
 
-    public String getProductID() {
+    public Long getProductID() {
         return productID;
     }
     public String getEmail() {
@@ -208,6 +210,11 @@ public class unit {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "unit{" + "unitID=" + unitID + '}';
     }
 
    

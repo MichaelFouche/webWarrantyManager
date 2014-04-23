@@ -42,8 +42,7 @@ public class connectionConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory
         (DataSource dataSource, JpaVendorAdapter jpaVendorAdapter){
-                LocalContainerEntityManagerFactoryBean lefb = 
-                new LocalContainerEntityManagerFactoryBean();    
+                LocalContainerEntityManagerFactoryBean lefb = new LocalContainerEntityManagerFactoryBean();    
                 lefb.setDataSource(dataSource);
                 lefb.setJpaVendorAdapter(jpaVendorAdapter);
                 lefb.setPackagesToScan("com.fouche.webwarrantymanager.domain");
@@ -52,8 +51,7 @@ public class connectionConfig {
         
     @Bean
     public JpaVendorAdapter jpaVendorAdapter(){
-        HibernateJpaVendorAdapter hibernateJpaVendorAdapter =
-                new HibernateJpaVendorAdapter();
+        HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
         hibernateJpaVendorAdapter.setShowSql(false);
         hibernateJpaVendorAdapter.setGenerateDdl(true);
         hibernateJpaVendorAdapter.setDatabase(Database.DERBY);

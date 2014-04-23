@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author foosh
  */
-public interface warrantyRepository extends JpaRepository<warranty, String>{
+@Repository
+public interface warrantyRepository extends JpaRepository<warranty, Long>{
     
 }
