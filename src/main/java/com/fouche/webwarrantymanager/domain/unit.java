@@ -56,6 +56,7 @@ public class unit {
    private unit(Builder builder){
        unitID = builder.unitID;
        purchaseDate = builder.purchaseDate;
+       sn = builder.sn;
        retailerID = builder.retailerID;
        warrantyID = builder.warrantyID;
        productID = builder.productID;

@@ -22,7 +22,7 @@ public class products {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //Primary Key
-    private String productID;
+    private Long productID;
     //Attributes
     private String make;
     private String model;
@@ -40,14 +40,14 @@ public class products {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         //Primary Key
-        private String productID;
+        private Long productID;
         //Attributes
         private String make;
         private String model;
         
         public Builder(){}
         
-        public Builder setProductID(String value){
+        public Builder setProductID(Long value){
             productID = value;
             return this;
         }
@@ -70,7 +70,7 @@ public class products {
     
 
     //GETTERS
-    public String getProductID() {
+    public Long getProductID() {
         return productID;
     }
 
@@ -84,8 +84,8 @@ public class products {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.productID);
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.productID);
         return hash;
     }
 
@@ -103,6 +103,8 @@ public class products {
         }
         return true;
     }
+
+    
 
     
 

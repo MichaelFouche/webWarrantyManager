@@ -22,7 +22,7 @@ public class retailer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //Primary key
-    private String retailerID;
+    private Long retailerID;
     //Attributes
     private String name;
     private String address;
@@ -42,7 +42,7 @@ public class retailer {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         //Primary key
-        private String retailerID;
+        private Long retailerID;
         //Attributes
         private String name;
         private String address;
@@ -50,7 +50,7 @@ public class retailer {
         
         public Builder(){}
         
-        public Builder setRetailerID(String value){
+        public Builder setRetailerID(Long value){
             retailerID = value;
             return this;
         }
@@ -75,7 +75,7 @@ public class retailer {
         return serialVersionUID;
     }
 
-    public String getRetailerID() {
+    public Long getRetailerID() {
         return retailerID;
     }
 
@@ -90,11 +90,11 @@ public class retailer {
     public String getContact() {
         return contact;
     }
-    
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.retailerID);
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.retailerID);
         return hash;
     }
 
@@ -112,6 +112,8 @@ public class retailer {
         }
         return true;
     }
+    
+    
 
     
     

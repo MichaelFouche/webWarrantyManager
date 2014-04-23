@@ -22,7 +22,7 @@ public class warranty {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //Primary KEY
-    private String warrantyID;
+    private Long warrantyID;
     //ATTRIBUTES
     private int replaceDuration;
     private int repairDuration;
@@ -40,12 +40,12 @@ public class warranty {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         //Primary KEY
-        private String warrantyID;
+        private Long warrantyID;
         //ATTRIBUTES
         private int replaceDuration;
         private int repairDuration;
         
-        public Builder setWarrantyID(String value){
+        public Builder setWarrantyID(Long value){
             warrantyID = value;
             return this;
         }
@@ -66,7 +66,7 @@ public class warranty {
         return serialVerionUID;
     }
 
-    public String getWarrantyID() {
+    public Long getWarrantyID() {
         return warrantyID;
     }
 
@@ -80,8 +80,8 @@ public class warranty {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + Objects.hashCode(this.warrantyID);
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.warrantyID);
         return hash;
     }
 
@@ -99,6 +99,8 @@ public class warranty {
         }
         return true;
     }
+
+    
 
     
     
