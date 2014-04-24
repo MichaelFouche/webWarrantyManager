@@ -6,7 +6,7 @@
 
 package com.fouche.webwarrantymanager.repository;
 
-import com.fouche.webwarrantymanager.domain.user;
+import com.fouche.webwarrantymanager.domain.users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 /**
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author foosh
  */
 @Repository
-public interface userRepository extends JpaRepository<user, Long>{
+public interface userRepository extends JpaRepository<users, Long>{
     
 }

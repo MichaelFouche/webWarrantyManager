@@ -49,7 +49,7 @@ public class unit {
     products prod;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="user_ID")
-    user use;
+    users use;
     
    private unit(){}
    
@@ -58,10 +58,12 @@ public class unit {
        unitID = builder.unitID;
        purchaseDate = builder.purchaseDate;
        sn = builder.sn;
+       
        retailerID = builder.retailerID;
        warrantyID = builder.warrantyID;
        productID = builder.productID;
        userID = builder.userID;
+       
        retail = builder.retail;
        warr = builder.warr;
        prod = builder.prod;
@@ -94,7 +96,7 @@ public class unit {
         products prod;
         @OneToOne(cascade = CascadeType.ALL)
         @JoinColumn(name="user_ID")
-        user use;
+        users use;
         
         public Builder(){}
         
@@ -138,7 +140,7 @@ public class unit {
             prod = value;
             return this;
         }
-        public Builder setUser(user value){
+        public Builder setUser(users value){
             use = value;
             return this;
         }
@@ -188,7 +190,7 @@ public class unit {
         return prod;
     }
 
-    public user getUser() {
+    public users getUser() {
         return use;
     }
 

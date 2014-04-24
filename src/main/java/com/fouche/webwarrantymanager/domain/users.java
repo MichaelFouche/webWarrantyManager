@@ -20,7 +20,7 @@ import javax.persistence.Id;
  */
 
 @Entity
-public class user {
+public class users {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,9 +34,9 @@ public class user {
     private String contact;
     private String address;
     
-    private user(){}
+    private users(){}
     
-    private user(Builder builder){
+    private users(Builder builder){
         userID = builder.userID;
         email = builder.email;
         pwd = builder.pwd;
@@ -90,8 +90,8 @@ public class user {
             address = value;
             return this;
         }
-        public user build(){
-            return new user(this);
+        public users build(){
+            return new users(this);
         }
     }
 
@@ -139,7 +139,7 @@ public class user {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final user other = (user) obj;
+        final users other = (users) obj;
         if (!Objects.equals(this.userID, other.userID)) {
             return false;
         }
