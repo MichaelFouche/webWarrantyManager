@@ -121,10 +121,10 @@ public class test {
     }
     @Test(dependsOnMethods = "createUnit")
     public void readUnit(){
-        //unitRepo = ctx.getBean(unitRepository.class);
+        unitRepo = ctx.getBean(unitRepository.class);
         unit un = unitRepo.findOne(unitID);
-        //Date d = new Date(1991,07,8);
-        //Assert.assertEquals(un.getPurchaseDate(), d);
+        Date d = new Date(1991,07,8);
+        Assert.assertEquals(un.getPurchaseDate(), d);
     }
     
     @Test(dependsOnMethods = "readUnit")
