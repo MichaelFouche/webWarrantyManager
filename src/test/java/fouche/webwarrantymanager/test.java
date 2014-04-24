@@ -136,9 +136,9 @@ public class test {
     private void deleteUnit(){
         unitRepo = ctx.getBean(unitRepository.class);
         unitRepo.delete(unitID);
-        productsRepo.delete(retailerID);
+       // productsRepo.delete(retailerID);
         unit un = unitRepo.findOne(unitID);
-        Assert.assertEquals(un.getSn(),null);
+        Assert.assertNull(un.getSn());
         
     }
     
