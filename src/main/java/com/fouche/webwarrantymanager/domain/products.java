@@ -67,8 +67,6 @@ public class products {
         }
             
     }
-    
-
     //GETTERS
     public Long getProductID() {
         return productID;
@@ -103,11 +101,4 @@ public class products {
         }
         return true;
     }
-
-    
-
-    
-
-   
-    
 }

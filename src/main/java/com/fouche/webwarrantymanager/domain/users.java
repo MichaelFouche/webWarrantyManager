@@ -95,7 +95,6 @@ public class users {
         }
     }
 
-
     public Long getUserID() {
         return userID;
     }
