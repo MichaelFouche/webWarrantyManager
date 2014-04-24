@@ -138,7 +138,7 @@ public class test {
         unitRepo.delete(unitID);
        // productsRepo.delete(retailerID);
         unit un = unitRepo.findOne(unitID);
-        Assert.assertNull(un.getSn());
+        Assert.assertNull(un);
         
     }
     
