@@ -8,17 +8,21 @@ package fouche.webwarrantymanager;
 
 
 
-import com.fouche.webwarrantymanager.app.conf.ConnectionConfig;
-import com.fouche.webwarrantymanager.domain.Products;
-import com.fouche.webwarrantymanager.domain.Retailer;
-import com.fouche.webwarrantymanager.domain.Unit;
-import com.fouche.webwarrantymanager.domain.Users;
-import com.fouche.webwarrantymanager.domain.Warranty;
-import com.fouche.webwarrantymanager.repository.ProductsRepository;
-import com.fouche.webwarrantymanager.repository.RetailerRepository;
-import com.fouche.webwarrantymanager.repository.UnitRepository;
-import com.fouche.webwarrantymanager.repository.UserRepository;
-import com.fouche.webwarrantymanager.repository.WarrantyRepository;
+
+
+
+
+import com.fouche.webwarrantymanager.app.conf.connectionConfig;
+import com.fouche.webwarrantymanager.domain.products;
+import com.fouche.webwarrantymanager.domain.retailer;
+import com.fouche.webwarrantymanager.domain.unit;
+import com.fouche.webwarrantymanager.domain.users;
+import com.fouche.webwarrantymanager.domain.warranty;
+import com.fouche.webwarrantymanager.repository.productsRepository;
+import com.fouche.webwarrantymanager.repository.retailerRepository;
+import com.fouche.webwarrantymanager.repository.unitRepository;
+import com.fouche.webwarrantymanager.repository.userRepository;
+import com.fouche.webwarrantymanager.repository.warrantyRepository;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -38,11 +42,11 @@ import org.testng.annotations.Test;
  */
 public class TestDatabase {
     public static ApplicationContext ctx;
-    private UnitRepository unitRepo;
-    private ProductsRepository productsRepo;
-    private RetailerRepository retailerRepo;
-    private UserRepository userRepo;
-    private WarrantyRepository warrantyRepo;
+    private unitRepository unitRepo;
+    private productsRepository productsRepo;
+    private retailerRepository retailerRepo;
+    private userRepository userRepo;
+    private warrantyRepository warrantyRepo;
     
     private Long unitID;
     private Long retailerID;
@@ -53,7 +57,7 @@ public class TestDatabase {
     
     public TestDatabase() {
     }
-
+ 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
@@ -63,21 +67,18 @@ public class TestDatabase {
     @Test
     public void createUnit(){
         
-        unitRepo = ctx.getBean(UnitRepository.class);
-        productsRepo = ctx.getBean(ProductsRepository.class);
-        retailerRepo = ctx.getBean(RetailerRepository.class);        
-        userRepo = ctx.getBean(UserRepository.class);       
-        warrantyRepo = ctx.getBean(WarrantyRepository.class);
+        unitRepo = ctx.getBean(unitRepository.class);
+        productsRepo = ctx.getBean(productsRepository.class);
+        retailerRepo = ctx.getBean(retailerRepository.class);        
+        userRepo = ctx.getBean(userRepository.class);       
+        warrantyRepo = ctx.getBean(warrantyRepository.class);
         
-        
-            
-        
-        Unit un = new Unit.Builder()
+        unit un = new unit.Builder()
                 .setPurchaseDate("08-07-1991")
                 .setSn("123A321")
                 .build();
         
-        Users us = new Users.Builder() 
+        users us = new users.Builder() 
                 .setUserID(un.getUnitID())
                 .setEmail("user@email.com")
                 .setPwd("")
@@ -87,19 +88,19 @@ public class TestDatabase {
                 .setAddress("")
                 .build();
         
-        Products prod = new Products.Builder()
+        products prod = new products.Builder()
                 .setProductID(un.getProductID())
                 .setMake("")
                 .setModel("")
                 .build();
         
-        Retailer retail = new Retailer.Builder()
+        retailer retail = new retailer.Builder()
                 .setRetailerID(un.getRetailerID())
                 .setName("")
                 .setAddress("")
                 .setContact("")
                 .build();
-        Warranty warr = new Warranty.Builder()
+        warranty warr = new warranty.Builder()
                 .setWarrantyID(un.getWarrantyID())
                 .setReplaceDuration(5)
                 .setRepairDuration(5)
@@ -127,40 +128,40 @@ public class TestDatabase {
     }
     @Test(dependsOnMethods = "createUnit")
     public void readUnit(){
-        unitRepo = ctx.getBean(UnitRepository.class);
-        Unit un = unitRepo.findOne(unitID);
+        unitRepo = ctx.getBean(unitRepository.class);
+        unit un = unitRepo.findOne(unitID);
         
         Assert.assertEquals(un.getPurchaseDate(), "08-07-1991");
     }
     
     @Test(dependsOnMethods = "readUnit")
     private void updateUnit(){
-        unitRepo = ctx.getBean(UnitRepository.class);
-        Unit un = unitRepo.findOne(unitID);
+        unitRepo = ctx.getBean(unitRepository.class);
+        unit un = unitRepo.findOne(unitID);
         unitID = un.getUnitID();
-        Unit updateUnit = new Unit.Builder(un.getSn())  
+        unit updateUnit = new unit.Builder(un.getSn())  
                 .setPurchaseDate("12-2-2014")
                 .build();        
         unitRepo.save(updateUnit);     
         unitRepo.delete(unitID);
         unitID = updateUnit.getUnitID();
-        Unit unUp = unitRepo.findOne(unitID);
+        unit unUp = unitRepo.findOne(unitID);
         Assert.assertEquals(unUp.getPurchaseDate(), "12-2-2014");
     }
     
     @Test(dependsOnMethods = "updateUnit")
     private void deleteUnit(){
-        unitRepo = ctx.getBean(UnitRepository.class);
+        unitRepo = ctx.getBean(unitRepository.class);
         unitRepo.delete(unitID);
        // productsRepo.delete(retailerID);
-        Unit un = unitRepo.findOne(unitID);
+        unit un = unitRepo.findOne(unitID);
         Assert.assertNull(un);
         
     }
     
     @BeforeClass
     public static void setUpClass() throws Exception {
-        ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);
+        ctx = new AnnotationConfigApplicationContext(connectionConfig.class);
     }
 
     @AfterClass
