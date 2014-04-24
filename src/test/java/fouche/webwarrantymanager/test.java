@@ -123,8 +123,8 @@ public class test {
     public void readUnit(){
         unitRepo = ctx.getBean(unitRepository.class);
         unit un = unitRepo.findOne(unitID);
-        Date d = new Date(1991,07,8);
-        Assert.assertEquals(un.getPurchaseDate(), d);
+        
+        Assert.assertEquals(un.getPurchaseDate(), "08-07-1991");
     }
     
     @Test(dependsOnMethods = "readUnit")
