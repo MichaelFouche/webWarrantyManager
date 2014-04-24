@@ -48,7 +48,7 @@ public class unit {
     products prod;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="user_ID")
-    User use;
+    user use;
     
    private unit(){}
    
@@ -93,7 +93,7 @@ public class unit {
         products prod;
         @OneToOne(cascade = CascadeType.ALL)
         @JoinColumn(name="user_ID")
-        User use;
+        user use;
         
         public Builder(){}
         
@@ -137,7 +137,7 @@ public class unit {
             prod = value;
             return this;
         }
-        public Builder setUser(User value){
+        public Builder setUser(user value){
             use = value;
             return this;
         }
@@ -187,7 +187,7 @@ public class unit {
         return prod;
     }
 
-    public User getUser() {
+    public user getUser() {
         return use;
     }
 

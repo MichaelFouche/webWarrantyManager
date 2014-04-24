@@ -10,7 +10,7 @@ import com.fouche.webwarrantymanager.app.conf.connectionConfig;
 import com.fouche.webwarrantymanager.domain.products;
 import com.fouche.webwarrantymanager.domain.retailer;
 import com.fouche.webwarrantymanager.domain.unit;
-import com.fouche.webwarrantymanager.domain.User;
+import com.fouche.webwarrantymanager.domain.user;
 import com.fouche.webwarrantymanager.domain.warranty;
 import com.fouche.webwarrantymanager.repository.productsRepository;
 import com.fouche.webwarrantymanager.repository.retailerRepository;
