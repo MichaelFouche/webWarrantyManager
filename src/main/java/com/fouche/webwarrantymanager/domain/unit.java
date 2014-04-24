@@ -100,6 +100,10 @@ public class unit {
         
         public Builder(){}
         
+        public Builder(String sn){
+            this.sn = sn;
+        }
+        
         public Builder setUnitID(Long value){
             unitID = value;
             return this;
@@ -142,6 +146,21 @@ public class unit {
         }
         public Builder setUser(users value){
             use = value;
+            return this;
+        }
+        public Builder user(unit un){
+            this.prod = un.prod;
+            this.warr = un.warr ;
+            this.use = un.use ;
+            this.retail = un.retail ;
+            this.userID = un.userID ;
+            this.productID = un.productID ;
+            this.warrantyID = un.warrantyID ;
+            this.retailerID = un.retailerID ;
+            this.sn = un.sn ;
+            this.purchaseDate = un.purchaseDate ;
+            this.unitID = un.unitID ;
+            
             return this;
         }
                 

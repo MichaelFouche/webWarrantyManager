@@ -46,7 +46,7 @@ public class test {
     private Long retailerID;
     private Long warrantyID;
     private Long productID;
-    private String email;
+    private Long userID;
 
     
     public test() {
@@ -62,10 +62,10 @@ public class test {
     public void createUnit(){
         
         unitRepo = ctx.getBean(unitRepository.class);
-        /**productsRepo = ctx.getBean(productsRepository.class);
+        productsRepo = ctx.getBean(productsRepository.class);
         retailerRepo = ctx.getBean(retailerRepository.class);        
         userRepo = ctx.getBean(userRepository.class);       
-        warrantyRepo = ctx.getBean(warrantyRepository.class);*/
+        warrantyRepo = ctx.getBean(warrantyRepository.class);
         
         
             
@@ -75,8 +75,9 @@ public class test {
                 .setSn("123A321")
                 .build();
         
-        /*user us = new user.Builder() 
-                .setEmail(un.getEmail())
+        users us = new users.Builder() 
+                .setUserID(un.getUnitID())
+                .setEmail("user@email.com")
                 .setPwd("")
                 .setName("")
                 .setSurname("")
@@ -100,24 +101,27 @@ public class test {
                 .setWarrantyID(un.getWarrantyID())
                 .setReplaceDuration(5)
                 .setRepairDuration(5)
-                .build();*/
+                .build();
                 
         unitRepo.save(un);        
         
-        /*productsRepo.save(prod); 
+        productsRepo.save(prod); 
         retailerRepo.save(retail);
         userRepo.save(us);
         warrantyRepo.save(warr);
         
        
         unitID = un.getUnitID();
-        retailerID = un.getRetailerID();
-        warrantyID = un.getWarrantyID();
-        productID = un.getProductID();
-        email = un.getEmail();*/
+        retailerID = retail.getRetailerID();
+        warrantyID = warr.getWarrantyID();
+        productID = prod.getProductID();
+        userID = us.getUserID();
         
-        unitID = un.getUnitID();
         Assert.assertNotNull(unitID);
+        Assert.assertNotNull(retailerID);
+        Assert.assertNotNull(warrantyID);
+        Assert.assertNotNull(productID);
+        Assert.assertNotNull(userID);
     }
     @Test(dependsOnMethods = "createUnit")
     public void readUnit(){
@@ -130,6 +134,16 @@ public class test {
     @Test(dependsOnMethods = "readUnit")
     private void updateUnit(){
         unitRepo = ctx.getBean(unitRepository.class);
+        unit un = unitRepo.findOne(unitID);
+        unitID = un.getUnitID();
+        unit updateUnit = new unit.Builder(un.getSn())  
+                .setPurchaseDate("12-2-2014")
+                .build();        
+        unitRepo.save(updateUnit);     
+        unitRepo.delete(unitID);
+        unitID = updateUnit.getUnitID();
+        unit unUp = unitRepo.findOne(unitID);
+        Assert.assertEquals(unUp.getPurchaseDate(), "12-2-2014");
     }
     
     @Test(dependsOnMethods = "updateUnit")

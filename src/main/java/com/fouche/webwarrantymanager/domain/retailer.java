@@ -73,11 +73,7 @@ public class retailer {
         }
     }
     //GETTERS
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public Long getRetailerID() {
+     public Long getRetailerID() {
         return retailerID;
     }
 
