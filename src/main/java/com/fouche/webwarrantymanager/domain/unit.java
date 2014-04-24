@@ -162,8 +162,7 @@ public class unit {
             this.unitID = un.unitID ;
             
             return this;
-        }
-                
+        }                
         public unit build(){
             return new unit(this);
         }
@@ -238,8 +237,5 @@ public class unit {
     @Override
     public String toString() {
         return "unit{" + "unitID=" + unitID + '}';
-    }
-
-   
-            
+    }      
 }

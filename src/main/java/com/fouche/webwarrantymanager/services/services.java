@@ -6,11 +6,12 @@
 
 package com.fouche.webwarrantymanager.services;
 
-import java.util.List;
+import java.util.List; 
 
 /**
  *
  * @author foosh
+ * 
  */
 public interface services<S, ID>{
     

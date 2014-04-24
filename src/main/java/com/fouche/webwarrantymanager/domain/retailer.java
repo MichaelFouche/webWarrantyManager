@@ -110,9 +110,4 @@ public class retailer {
         }
         return true;
     }
-    
-    
-
-    
-    
 }
