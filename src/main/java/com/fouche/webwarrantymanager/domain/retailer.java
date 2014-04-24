@@ -19,10 +19,11 @@ import javax.persistence.Id;
 @Entity
 public class retailer {
     private static final long serialVersionUID=1L;
+    //Primary key
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //Primary key
     private Long retailerID;
+    
     //Attributes
     private String name;
     private String address;
@@ -39,10 +40,11 @@ public class retailer {
     
     public static class Builder{
         private static final long serialVersionUID=1L;
+        //Primary key
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        //Primary key
         private Long retailerID;
+        
         //Attributes
         private String name;
         private String address;

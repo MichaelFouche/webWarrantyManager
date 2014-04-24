@@ -19,9 +19,9 @@ import javax.persistence.Id;
 @Entity
 public class products {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     //Primary Key
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)    
     private Long productID;
     //Attributes
     private String make;
@@ -37,10 +37,10 @@ public class products {
     
     public static class Builder{
         private static final long serialVersionUID = 1L;
+        //Primary Key
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        //Primary Key
-        private Long productID;
+        private Long productID;  
         //Attributes
         private String make;
         private String model;

@@ -19,10 +19,11 @@ import javax.persistence.Id;
 @Entity
 public class warranty {
     private static final long serialVerionUID = 1L;
+    //Primary KEY
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //Primary KEY
     private Long warrantyID;
+    
     //ATTRIBUTES
     private int replaceDuration;
     private int repairDuration;
@@ -36,10 +37,10 @@ public class warranty {
     }
     
     public static class Builder{
-        private static final long serialVerionUID = 1L;
+        private static final long serialVerionUID = 1L;        
+        //Primary KEY
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        //Primary KEY
         private Long warrantyID;
         //ATTRIBUTES
         private int replaceDuration;

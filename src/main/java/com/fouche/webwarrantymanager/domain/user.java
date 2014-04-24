@@ -16,7 +16,9 @@ import javax.persistence.Id;
 /**
  *
  * @author foosh
+ * 
  */
+
 @Entity
 public class user {
     private static final long serialVersionUID = 1L;
@@ -46,10 +48,10 @@ public class user {
     
     public static class Builder{
         private static final long serialVersionUID = 1L;
+        //PRIMARY KEY
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        //PRIMARY KEY
-        private Long userID;    
+        private Long userID;   
         //ATTRIBUTES
         private String email;
         private String pwd;
@@ -93,9 +95,6 @@ public class user {
         }
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public Long getUserID() {
         return userID;
@@ -127,8 +126,8 @@ public class user {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 13 * hash + Objects.hashCode(this.userID);
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.userID);
         return hash;
     }
 
@@ -146,6 +145,8 @@ public class user {
         }
         return true;
     }
+
+   
 
     
     

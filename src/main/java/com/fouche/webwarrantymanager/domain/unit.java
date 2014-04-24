@@ -24,10 +24,11 @@ import javax.persistence.OneToOne;
 @Entity
 public class unit {
     private static final long serialVersionUID = 1L;
+    //PRIMARY KEY
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long unitID;
-     // needs to be long or string
+     
     //Attributes
     private String purchaseDate;
     private String sn;
@@ -64,15 +65,15 @@ public class unit {
        retail = builder.retail;
        warr = builder.warr;
        prod = builder.prod;
+       use = builder.use;
    }
    //BUILDER CLASS
    public static class Builder{
         private static final long serialVersionUID = 1L;
+        //Primary Key
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long unitID;
-        //Primary Key
-        
         //Attributes
         private String purchaseDate;
         private String sn;
