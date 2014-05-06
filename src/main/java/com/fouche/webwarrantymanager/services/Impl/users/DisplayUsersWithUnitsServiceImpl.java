@@ -31,10 +31,11 @@ public class DisplayUsersWithUnitsServiceImpl implements DisplayUsersWithUnitsSe
         List<Users> user = new ArrayList<>();
         List<Unit> allUnits = unitRepository.findAll();
         List<Users> allUsers = userRepository.findAll();
-        for (Users  userObject : allUsers) { 
-            for (Unit  unitObject : allUnits) {  
-                if(userObject.getUserID().equals(unitObject.getUserID())){
+        for (Unit  unitObject : allUnits) { //Loop through all the units 
+            for (Users  userObject : allUsers) { //loop through all the users
+                if(userObject.getUserID().equals(unitObject.getUserID())){ //check whether the unit's user id is equal to the user id in the current loop itteration
                     user.add(userObject);
+                    break;//Only one user can belong to a unit, therefore break and continue to next unit
                 } 
             }    
         }
