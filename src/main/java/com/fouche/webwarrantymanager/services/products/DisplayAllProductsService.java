@@ -6,7 +6,7 @@
 
 package com.fouche.webwarrantymanager.services.products;
 
-import com.fouche.webwarrantymanager.domain.products;
+import com.fouche.webwarrantymanager.domain.Products;
 import java.util.List;
 
 /**
@@ -14,5 +14,5 @@ import java.util.List;
  * @author foosh
  */
 public interface DisplayAllProductsService {
-    public List<products> getAllProducts();
+    public List<Products> getAllProducts();
 }

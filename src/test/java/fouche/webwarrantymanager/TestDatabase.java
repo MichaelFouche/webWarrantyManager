@@ -13,7 +13,7 @@ package fouche.webwarrantymanager;
 
 
 import com.fouche.webwarrantymanager.app.conf.connectionConfig;
-import com.fouche.webwarrantymanager.domain.products;
+import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.domain.retailer;
 import com.fouche.webwarrantymanager.domain.unit;
 import com.fouche.webwarrantymanager.domain.users;
@@ -88,7 +88,7 @@ public class TestDatabase {
                 .setAddress("")
                 .build();
         
-        products prod = new products.Builder()
+        Products prod = new Products.Builder()
                 .setProductID(un.getProductID())
                 .setMake("")
                 .setModel("")

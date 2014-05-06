@@ -5,12 +5,12 @@
  */
 
 package com.fouche.webwarrantymanager.services.products;
-import com.fouche.webwarrantymanager.domain.products;
+import com.fouche.webwarrantymanager.domain.Products;
 import java.util.List;
 /**
  *
  * @author foosh
  */
 public interface DisplayProductsMakePurchasedOnService {
-    public List<products> getProductsMakePurchasedOn(String make, String purchasedOn);
+    public List<Products> getProductsMakePurchasedOn(String make, String purchasedOn);
 }
