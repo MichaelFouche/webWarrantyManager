@@ -46,6 +46,9 @@ public class Products {
         private String model;
         
         public Builder(){}
+        public Builder(String make){
+            this.make = make; 
+        }
         
         public Builder setProductID(Long value){
             productID = value;
