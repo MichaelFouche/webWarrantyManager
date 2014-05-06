@@ -8,7 +8,7 @@ package fouche.webwarrantymanager.test.services.products;
 
 import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.repository.ProductsRepository;
-import com.fouche.webwarrantymanager.services.products.DisplayAllProductsService;
+import com.fouche.webwarrantymanager.services.products.DisplayProductsWithIdService;
 import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +28,9 @@ import org.testng.annotations.Test;
  */
 public class DisplayProductsWithIdTest {
     private static ApplicationContext ctx;
-    private DisplayAllProductsService displayAllProductsService;
+    private DisplayProductsWithIdService displayProductsWithIdService;
     private ProductsRepository productsRepo;
-    
+    private Long id1, id2, id3;
     public DisplayProductsWithIdTest() {
     }
 
@@ -43,28 +43,31 @@ public class DisplayProductsWithIdTest {
     @Test
     public void getAllProducts() {
         productsRepo = ctx.getBean(ProductsRepository.class);
-        displayAllProductsService = ctx.getBean(DisplayAllProductsService.class);
+        displayProductsWithIdService = ctx.getBean(DisplayProductsWithIdService.class);
         
         Products prod1 = new Products.Builder()
                     .setMake("Samsung")
                     .setModel("S4")
                     .build();
+        id1 = prod1.getProductID();
         Products prod2 = new Products.Builder()
                     .setMake("Samsung")
                     .setModel("S4-Mini")
                     .build();
+        id2 = prod2.getProductID();
         Products prod3 = new Products.Builder()
                     .setMake("LG")
                     .setModel("G2")
                     .build();
+        id3 = prod3.getProductID();
         productsRepo.save(prod1); 
         productsRepo.save(prod2); 
         productsRepo.save(prod3); 
 
         List<Products> productList = new ArrayList<>();
-        productList = displayAllProductsService.getAllProducts();
+        productList = displayProductsWithIdService.getProductsWithId(id1);
 
-        Assert.assertEquals(productList.size(), 3);
+        Assert.assertEquals(displayProductsWithIdService.getProductsWithId(id1),productList );
 
     }
     
