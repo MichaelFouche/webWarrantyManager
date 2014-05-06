@@ -5,12 +5,12 @@
  */
 
 package com.fouche.webwarrantymanager.services.unit;
-import com.fouche.webwarrantymanager.domain.unit;
+import com.fouche.webwarrantymanager.domain.Unit;
 import java.util.List;
 /**
  *
  * @author foosh
  */
 public interface DisplayAllUnitsService {
-    public List<unit> getAllUnits();
+    public List<Unit> getAllUnits();
 }

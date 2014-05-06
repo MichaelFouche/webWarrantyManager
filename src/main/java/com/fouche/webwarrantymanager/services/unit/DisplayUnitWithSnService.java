@@ -6,7 +6,7 @@
 
 package com.fouche.webwarrantymanager.services.unit;
 
-import com.fouche.webwarrantymanager.domain.unit;
+import com.fouche.webwarrantymanager.domain.Unit;
 import java.util.List;
 
 /**
@@ -14,5 +14,5 @@ import java.util.List;
  * @author foosh
  */
 public interface DisplayUnitWithSnService {
-    public List<unit> getUnitWithSn(String sn);
+    public List<Unit> getUnitWithSn(String sn);
 }

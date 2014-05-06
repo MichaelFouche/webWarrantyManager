@@ -6,7 +6,7 @@
 
 package com.fouche.webwarrantymanager.services.users;
 
-import com.fouche.webwarrantymanager.domain.users;
+import com.fouche.webwarrantymanager.domain.Users;
 import java.util.List;
 
 /**
@@ -14,5 +14,5 @@ import java.util.List;
  * @author foosh
  */
 public interface DisplayUsersWithUnitsService {
-    public List<users> getUsersWithUnits();
+    public List<Users> getUsersWithUnits();
 }

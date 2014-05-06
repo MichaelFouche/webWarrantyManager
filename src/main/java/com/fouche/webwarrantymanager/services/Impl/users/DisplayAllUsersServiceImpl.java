@@ -5,7 +5,7 @@
  */
 
 package com.fouche.webwarrantymanager.services.Impl.users;
-import com.fouche.webwarrantymanager.domain.users;
+import com.fouche.webwarrantymanager.domain.Users;
 import com.fouche.webwarrantymanager.repository.userRepository;
 import com.fouche.webwarrantymanager.services.users.DisplayAllUsersService;
 import java.util.ArrayList;
@@ -23,10 +23,10 @@ public class DisplayAllUsersServiceImpl implements DisplayAllUsersService{
     private userRepository userRepository;
     
     @Override
-    public List<users> getAllUsers() {
-        List<users> user = new ArrayList<>();
-        List<users> allUsers = userRepository.findAll();
-        for (users  userObject : allUsers) {            
+    public List<Users> getAllUsers() {
+        List<Users> user = new ArrayList<>();
+        List<Users> allUsers = userRepository.findAll();
+        for (Users  userObject : allUsers) {            
             user.add(userObject);
             
         }        

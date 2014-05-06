@@ -14,9 +14,9 @@ package fouche.webwarrantymanager;
 
 import com.fouche.webwarrantymanager.app.conf.connectionConfig;
 import com.fouche.webwarrantymanager.domain.Products;
-import com.fouche.webwarrantymanager.domain.retailer;
-import com.fouche.webwarrantymanager.domain.unit;
-import com.fouche.webwarrantymanager.domain.users;
+import com.fouche.webwarrantymanager.domain.Retailer;
+import com.fouche.webwarrantymanager.domain.Unit;
+import com.fouche.webwarrantymanager.domain.Users;
 import com.fouche.webwarrantymanager.domain.Warranty;
 import com.fouche.webwarrantymanager.repository.productsRepository;
 import com.fouche.webwarrantymanager.repository.retailerRepository;
@@ -73,12 +73,12 @@ public class TestDatabase {
         userRepo = ctx.getBean(userRepository.class);       
         warrantyRepo = ctx.getBean(warrantyRepository.class);
         
-        unit un = new unit.Builder()
+        Unit un = new Unit.Builder()
                 .setPurchaseDate("08-07-1991")
                 .setSn("123A321")
                 .build();
         
-        users us = new users.Builder() 
+        Users us = new Users.Builder() 
                 .setUserID(un.getUnitID())
                 .setEmail("user@email.com")
                 .setPwd("")
@@ -94,7 +94,7 @@ public class TestDatabase {
                 .setModel("")
                 .build();
         
-        retailer retail = new retailer.Builder()
+        Retailer retail = new Retailer.Builder()
                 .setRetailerID(un.getRetailerID())
                 .setName("")
                 .setAddress("")
@@ -129,7 +129,7 @@ public class TestDatabase {
     @Test(dependsOnMethods = "createUnit")
     public void readUnit(){
         unitRepo = ctx.getBean(unitRepository.class);
-        unit un = unitRepo.findOne(unitID);
+        Unit un = unitRepo.findOne(unitID);
         
         Assert.assertEquals(un.getPurchaseDate(), "08-07-1991");
     }
@@ -137,15 +137,15 @@ public class TestDatabase {
     @Test(dependsOnMethods = "readUnit")
     private void updateUnit(){
         unitRepo = ctx.getBean(unitRepository.class);
-        unit un = unitRepo.findOne(unitID);
+        Unit un = unitRepo.findOne(unitID);
         unitID = un.getUnitID();
-        unit updateUnit = new unit.Builder(un.getSn())  
+        Unit updateUnit = new Unit.Builder(un.getSn())  
                 .setPurchaseDate("12-2-2014")
                 .build();        
         unitRepo.save(updateUnit);     
         unitRepo.delete(unitID);
         unitID = updateUnit.getUnitID();
-        unit unUp = unitRepo.findOne(unitID);
+        Unit unUp = unitRepo.findOne(unitID);
         Assert.assertEquals(unUp.getPurchaseDate(), "12-2-2014");
     }
     
@@ -154,7 +154,7 @@ public class TestDatabase {
         unitRepo = ctx.getBean(unitRepository.class);
         unitRepo.delete(unitID);
        // productsRepo.delete(retailerID);
-        unit un = unitRepo.findOne(unitID);
+        Unit un = unitRepo.findOne(unitID);
         Assert.assertNull(un);
         
     }

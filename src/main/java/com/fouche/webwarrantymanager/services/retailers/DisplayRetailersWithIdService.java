@@ -6,7 +6,7 @@
 
 package com.fouche.webwarrantymanager.services.retailers;
 
-import com.fouche.webwarrantymanager.domain.retailer;
+import com.fouche.webwarrantymanager.domain.Retailer;
 import java.util.List;
 
 /**
@@ -14,5 +14,5 @@ import java.util.List;
  * @author foosh
  */
 public interface DisplayRetailersWithIdService {
-    public List<retailer> getRetailersWithId(String id);
+    public List<Retailer> getRetailersWithId(String id);
 }

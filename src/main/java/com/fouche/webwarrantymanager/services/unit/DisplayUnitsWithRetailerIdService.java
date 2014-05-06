@@ -6,7 +6,7 @@
 
 package com.fouche.webwarrantymanager.services.unit;
 
-import com.fouche.webwarrantymanager.domain.unit;
+import com.fouche.webwarrantymanager.domain.Unit;
 import java.util.List;
 
 /**
@@ -14,5 +14,5 @@ import java.util.List;
  * @author foosh
  */
 public interface DisplayUnitsWithRetailerIdService {
-    public List<unit> getUnitsWithRetailerId(String id);
+    public List<Unit> getUnitsWithRetailerId(String id);
 }

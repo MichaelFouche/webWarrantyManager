@@ -5,12 +5,12 @@
  */
 
 package com.fouche.webwarrantymanager.services.users;
-import com.fouche.webwarrantymanager.domain.users;
+import com.fouche.webwarrantymanager.domain.Users;
 import java.util.List;
 /**
  *
  * @author foosh
  */
 public interface DisplaylUsersWithSurnameService {
-    public List<users> getUserWithSurname(String surname);
+    public List<Users> getUserWithSurname(String surname);
 }
