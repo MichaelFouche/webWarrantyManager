@@ -11,6 +11,6 @@ import java.util.List;
  *
  * @author foosh
  */
-public interface DisplaylUsersWithSurnameService {
+public interface DisplayUsersWithSurnameService {
     public List<Users> getUserWithSurname(String surname);
 }

@@ -14,5 +14,5 @@ import java.util.List;
  * @author foosh
  */
 public interface DisplayUserWithIdService {
-    public List<Users> getUserWithId(String id);
+    public List<Users> getUserWithId(Long id);
 }
