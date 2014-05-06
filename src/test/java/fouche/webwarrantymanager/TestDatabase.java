@@ -5,21 +5,6 @@ package fouche.webwarrantymanager;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import com.fouche.webwarrantymanager.app.conf.ConnectionConfig;
 import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.domain.Retailer;
