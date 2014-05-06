@@ -6,7 +6,7 @@
 
 package com.fouche.webwarrantymanager.services.warranty;
 
-import com.fouche.webwarrantymanager.domain.warranty;
+import com.fouche.webwarrantymanager.domain.Warranty;
 import java.util.List;
 
 /**
@@ -14,5 +14,5 @@ import java.util.List;
  * @author foosh
  */
 public interface DisplayAllWarrantyService {
-    public List<warranty> getAllWarranty();
+    public List<Warranty> getAllWarranty();
 }

@@ -43,7 +43,7 @@ public class unit {
     retailer retail;        
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="warranty_ID")
-    warranty warr;        
+    Warranty warr;        
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="product_ID")
     products prod;
@@ -90,7 +90,7 @@ public class unit {
         retailer retail;        
         @OneToOne(cascade = CascadeType.ALL)
         @JoinColumn(name="warranty_ID")
-        warranty warr;        
+        Warranty warr;        
         @OneToOne(cascade = CascadeType.ALL)
         @JoinColumn(name="product_ID")
         products prod;
@@ -136,7 +136,7 @@ public class unit {
             retail = value;
             return this;
         }
-        public Builder setWarranty(warranty value){
+        public Builder setWarranty(Warranty value){
             warr = value;
             return this;
         }
@@ -200,7 +200,7 @@ public class unit {
         return retail;
     }
 
-    public warranty getWarr() {
+    public Warranty getWarr() {
         return warr;
     }
 

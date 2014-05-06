@@ -17,7 +17,7 @@ import com.fouche.webwarrantymanager.domain.products;
 import com.fouche.webwarrantymanager.domain.retailer;
 import com.fouche.webwarrantymanager.domain.unit;
 import com.fouche.webwarrantymanager.domain.users;
-import com.fouche.webwarrantymanager.domain.warranty;
+import com.fouche.webwarrantymanager.domain.Warranty;
 import com.fouche.webwarrantymanager.repository.productsRepository;
 import com.fouche.webwarrantymanager.repository.retailerRepository;
 import com.fouche.webwarrantymanager.repository.unitRepository;
@@ -100,7 +100,7 @@ public class TestDatabase {
                 .setAddress("")
                 .setContact("")
                 .build();
-        warranty warr = new warranty.Builder()
+        Warranty warr = new Warranty.Builder()
                 .setWarrantyID(un.getWarrantyID())
                 .setReplaceDuration(5)
                 .setRepairDuration(5)
