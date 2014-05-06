@@ -12,7 +12,15 @@ package fouche.webwarrantymanager;
 
 
 
-import com.fouche.webwarrantymanager.app.conf.connectionConfig;
+
+
+
+
+
+
+
+
+import com.fouche.webwarrantymanager.app.conf.ConnectionConfig;
 import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.domain.Retailer;
 import com.fouche.webwarrantymanager.domain.Unit;
@@ -161,7 +169,7 @@ public class TestDatabase {
     
     @BeforeClass
     public static void setUpClass() throws Exception {
-        ctx = new AnnotationConfigApplicationContext(connectionConfig.class);
+        ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);
     }
 
     @AfterClass
