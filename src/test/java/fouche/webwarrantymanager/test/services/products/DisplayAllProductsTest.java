@@ -41,7 +41,7 @@ public class DisplayAllProductsTest {
     // public void hello() {}
 
     @Test
-    public void getAgeofPeple() {
+    public void getAllProducts() {
         productsRepo = ctx.getBean(ProductsRepository.class);
         displayAllProductsService = ctx.getBean(DisplayAllProductsService.class);
         
