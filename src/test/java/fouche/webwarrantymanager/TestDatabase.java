@@ -167,5 +167,16 @@ public class TestDatabase {
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
+        unitRepo = ctx.getBean(UnitRepository.class);
+        productsRepo = ctx.getBean(ProductsRepository.class);
+        retailerRepo = ctx.getBean(RetailerRepository.class);        
+        userRepo = ctx.getBean(UserRepository.class);       
+        warrantyRepo = ctx.getBean(WarrantyRepository.class);
+        
+        unitRepo.deleteAll();
+        productsRepo.deleteAll();
+        retailerRepo.deleteAll();
+        userRepo.deleteAll();
+        warrantyRepo.deleteAll();
     }
 }
