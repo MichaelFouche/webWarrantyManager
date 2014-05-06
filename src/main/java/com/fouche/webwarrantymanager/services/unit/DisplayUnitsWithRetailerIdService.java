@@ -14,5 +14,5 @@ import java.util.List;
  * @author foosh
  */
 public interface DisplayUnitsWithRetailerIdService {
-    public List<Unit> getUnitsWithRetailerId(String id);
+    public List<Unit> getUnitsWithRetailerId(Long id);
 }

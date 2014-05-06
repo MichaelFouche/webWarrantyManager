@@ -6,13 +6,13 @@
 
 package com.fouche.webwarrantymanager.services.unit;
 
-import com.fouche.webwarrantymanager.domain.Users;
+import com.fouche.webwarrantymanager.domain.Unit;
 import java.util.List;
 
 /**
  *
  * @author foosh
  */
-public interface DisplayUnitsWithUserId {
-    public List<Users> getUnitsWithUserId(String id);
+public interface DisplayUnitsWithUserIdService {
+    public List<Unit> getUnitsWithUserId(Long id);
 }
