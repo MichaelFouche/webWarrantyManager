@@ -4,14 +4,12 @@
  * and open the template in the editor.
  */
 
-package fouche.webwarrantymanager.services.products;
+package fouche.webwarrantymanager.test.services.products;
 
-import com.fouche.webwarrantymanager.app.conf.ConnectionConfig;
 import com.fouche.webwarrantymanager.domain.Products;
-import com.fouche.webwarrantymanager.domain.Unit;
 import com.fouche.webwarrantymanager.repository.ProductsRepository;
-import com.fouche.webwarrantymanager.repository.UnitRepository;
 import com.fouche.webwarrantymanager.services.products.DisplayAllProductsService;
+import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.context.ApplicationContext;
@@ -32,7 +30,6 @@ public class DisplayAllProductsTest {
     private static ApplicationContext ctx;
     private DisplayAllProductsService displayAllProductsService;
     private ProductsRepository productsRepo;
-    private UnitRepository unitRepo;
     
     public DisplayAllProductsTest() {
     }
@@ -46,7 +43,6 @@ public class DisplayAllProductsTest {
     @Test
     public void getAgeofPeple() {
         productsRepo = ctx.getBean(ProductsRepository.class);
-        unitRepo = ctx.getBean(UnitRepository.class);
         displayAllProductsService = ctx.getBean(DisplayAllProductsService.class);
         
         Products prod1 = new Products.Builder()
@@ -74,7 +70,7 @@ public class DisplayAllProductsTest {
     
     @BeforeClass
     public static void setUpClass() throws Exception {
-        ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);
+        ctx = new AnnotationConfigApplicationContext(ConnectionConfigTest.class);
     }
 
     @AfterClass
@@ -87,9 +83,7 @@ public class DisplayAllProductsTest {
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
-        unitRepo = ctx.getBean(UnitRepository.class);
         productsRepo = ctx.getBean(ProductsRepository.class);
-        unitRepo.deleteAll();
         productsRepo.deleteAll();
     }
 }

@@ -1,4 +1,4 @@
-package fouche.webwarrantymanager;
+package fouche.webwarrantymanager.test;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

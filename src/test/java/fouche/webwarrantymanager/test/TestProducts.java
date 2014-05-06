@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-package fouche.webwarrantymanager;
+package fouche.webwarrantymanager.test;
 
 import com.fouche.webwarrantymanager.app.conf.ConnectionConfig;
 import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.domain.Unit;
 import com.fouche.webwarrantymanager.repository.ProductsRepository;
 import com.fouche.webwarrantymanager.repository.UnitRepository;
-import static fouche.webwarrantymanager.TestDatabase.ctx;
+import static fouche.webwarrantymanager.test.TestDatabase.ctx;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;
 import static org.testng.Assert.*;
