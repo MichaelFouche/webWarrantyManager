@@ -6,7 +6,7 @@
 
 package com.fouche.webwarrantymanager.services.Impl.users;
 import com.fouche.webwarrantymanager.domain.Users;
-import com.fouche.webwarrantymanager.repository.userRepository;
+import com.fouche.webwarrantymanager.repository.UserRepository;
 import com.fouche.webwarrantymanager.services.users.DisplayAllUsersService;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DisplayAllUsersServiceImpl implements DisplayAllUsersService{
     @Autowired
-    private userRepository userRepository;
+    private UserRepository userRepository;
     
     @Override
     public List<Users> getAllUsers() {

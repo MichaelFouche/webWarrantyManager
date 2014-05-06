@@ -26,11 +26,11 @@ import com.fouche.webwarrantymanager.domain.Retailer;
 import com.fouche.webwarrantymanager.domain.Unit;
 import com.fouche.webwarrantymanager.domain.Users;
 import com.fouche.webwarrantymanager.domain.Warranty;
-import com.fouche.webwarrantymanager.repository.productsRepository;
-import com.fouche.webwarrantymanager.repository.retailerRepository;
-import com.fouche.webwarrantymanager.repository.unitRepository;
-import com.fouche.webwarrantymanager.repository.userRepository;
-import com.fouche.webwarrantymanager.repository.warrantyRepository;
+import com.fouche.webwarrantymanager.repository.ProductsRepository;
+import com.fouche.webwarrantymanager.repository.RetailerRepository;
+import com.fouche.webwarrantymanager.repository.UnitRepository;
+import com.fouche.webwarrantymanager.repository.UserRepository;
+import com.fouche.webwarrantymanager.repository.WarrantyRepository;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -50,11 +50,11 @@ import org.testng.annotations.Test;
  */
 public class TestDatabase {
     public static ApplicationContext ctx;
-    private unitRepository unitRepo;
-    private productsRepository productsRepo;
-    private retailerRepository retailerRepo;
-    private userRepository userRepo;
-    private warrantyRepository warrantyRepo;
+    private UnitRepository unitRepo;
+    private ProductsRepository productsRepo;
+    private RetailerRepository retailerRepo;
+    private UserRepository userRepo;
+    private WarrantyRepository warrantyRepo;
     
     private Long unitID;
     private Long retailerID;
@@ -75,11 +75,11 @@ public class TestDatabase {
     @Test
     public void createUnit(){
         
-        unitRepo = ctx.getBean(unitRepository.class);
-        productsRepo = ctx.getBean(productsRepository.class);
-        retailerRepo = ctx.getBean(retailerRepository.class);        
-        userRepo = ctx.getBean(userRepository.class);       
-        warrantyRepo = ctx.getBean(warrantyRepository.class);
+        unitRepo = ctx.getBean(UnitRepository.class);
+        productsRepo = ctx.getBean(ProductsRepository.class);
+        retailerRepo = ctx.getBean(RetailerRepository.class);        
+        userRepo = ctx.getBean(UserRepository.class);       
+        warrantyRepo = ctx.getBean(WarrantyRepository.class);
         
         Unit un = new Unit.Builder()
                 .setPurchaseDate("08-07-1991")
@@ -136,7 +136,7 @@ public class TestDatabase {
     }
     @Test(dependsOnMethods = "createUnit")
     public void readUnit(){
-        unitRepo = ctx.getBean(unitRepository.class);
+        unitRepo = ctx.getBean(UnitRepository.class);
         Unit un = unitRepo.findOne(unitID);
         
         Assert.assertEquals(un.getPurchaseDate(), "08-07-1991");
@@ -144,7 +144,7 @@ public class TestDatabase {
     
     @Test(dependsOnMethods = "readUnit")
     private void updateUnit(){
-        unitRepo = ctx.getBean(unitRepository.class);
+        unitRepo = ctx.getBean(UnitRepository.class);
         Unit un = unitRepo.findOne(unitID);
         unitID = un.getUnitID();
         Unit updateUnit = new Unit.Builder(un.getSn())  
@@ -159,7 +159,7 @@ public class TestDatabase {
     
     @Test(dependsOnMethods = "updateUnit")
     private void deleteUnit(){
-        unitRepo = ctx.getBean(unitRepository.class);
+        unitRepo = ctx.getBean(UnitRepository.class);
         unitRepo.delete(unitID);
        // productsRepo.delete(retailerID);
         Unit un = unitRepo.findOne(unitID);
