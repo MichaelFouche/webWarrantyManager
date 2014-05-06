@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.fouche.webwarrantymanager.services;
+package com.fouche.webwarrantymanager.services.users;
 
 import com.fouche.webwarrantymanager.domain.users;
 import java.util.List;
@@ -13,6 +13,6 @@ import java.util.List;
  *
  * @author foosh
  */
-public interface DisplayAllUsersService {
-    public List<users> getAllUsers();
+public interface DisplayUserWithIDService {
+    public List<users> getUserWithID(String id);
 }

@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-package com.fouche.webwarrantymanager.services.Impl;
+package com.fouche.webwarrantymanager.services.Impl.users;
 import com.fouche.webwarrantymanager.domain.users;
 import com.fouche.webwarrantymanager.repository.userRepository;
-import com.fouche.webwarrantymanager.services.DisplayAllUsersService;
+import com.fouche.webwarrantymanager.services.users.DisplayAllUsersService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
