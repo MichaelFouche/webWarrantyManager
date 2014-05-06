@@ -41,7 +41,7 @@ public class DisplayAllUsersTest {
     // public void hello() {}
 
     @Test
-    public void getAllProducts() {
+    public void getAllUsers() {
         userRepo = ctx.getBean(UserRepository.class); 
         displayAllUsersService = ctx.getBean(DisplayAllUsersService.class);
         Users us1 = new Users.Builder() 

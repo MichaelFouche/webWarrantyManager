@@ -40,7 +40,7 @@ public class DisplayAllUnitsTest {
     // public void hello() {}
 
     @Test
-    public void getAllProducts() {
+    public void getAllUnits() {
         unitRepo = ctx.getBean(UnitRepository.class);
         displayAllUnitsService = ctx.getBean(DisplayAllUnitsService.class);
         

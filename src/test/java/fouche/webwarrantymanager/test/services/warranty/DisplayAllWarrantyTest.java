@@ -40,7 +40,7 @@ public class DisplayAllWarrantyTest {
     // public void hello() {}
 
     @Test
-    public void getAllProducts() {
+    public void getAllWarranty() {
         warrantyRepo = ctx.getBean(WarrantyRepository.class);
         displayAllWarrantyService = ctx.getBean(DisplayAllWarrantyService.class);
         Warranty warr1 = new Warranty.Builder()
