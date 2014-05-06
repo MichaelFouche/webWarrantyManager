@@ -14,5 +14,5 @@ import java.util.List;
  * @author foosh
  */
 public interface DisplayWarrantyWithIdService {
-    public List<Warranty> getWarrantyWithId(String id);
+    public List<Warranty> getWarrantyWithId(Long id);
 }
