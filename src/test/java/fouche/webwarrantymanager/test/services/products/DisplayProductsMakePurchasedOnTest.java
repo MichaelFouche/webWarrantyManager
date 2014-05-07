@@ -7,8 +7,10 @@
 package fouche.webwarrantymanager.test.services.products;
 
 import com.fouche.webwarrantymanager.domain.Products;
+import com.fouche.webwarrantymanager.domain.Unit;
 import com.fouche.webwarrantymanager.repository.ProductsRepository;
-import com.fouche.webwarrantymanager.services.products.DisplayAllProductsService;
+import com.fouche.webwarrantymanager.repository.UnitRepository;
+import com.fouche.webwarrantymanager.services.products.DisplayProductsMakePurchasedOnService;
 import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,8 @@ import org.testng.annotations.Test;
  */
 public class DisplayProductsMakePurchasedOnTest {
     private static ApplicationContext ctx;
-    private DisplayAllProductsService displayAllProductsService;
+    private DisplayProductsMakePurchasedOnService displayProductsMakePurchasedOnService;
+    private UnitRepository unitRepo;
     private ProductsRepository productsRepo;
     
     public DisplayProductsMakePurchasedOnTest() {
@@ -43,28 +46,48 @@ public class DisplayProductsMakePurchasedOnTest {
     @Test
     public void getAllProducts() {
         productsRepo = ctx.getBean(ProductsRepository.class);
-        displayAllProductsService = ctx.getBean(DisplayAllProductsService.class);
+        displayProductsMakePurchasedOnService = ctx.getBean(DisplayProductsMakePurchasedOnService.class);
+        unitRepo = ctx.getBean(UnitRepository.class);
         
         Products prod1 = new Products.Builder()
                     .setMake("Samsung")
                     .setModel("S4")
                     .build();
+        Unit un1 = new Unit.Builder()
+                .setPurchaseDate("08-07-1991")
+                .setSn("123A323")
+                .setProductID(prod1.getProductID())
+                .build();
         Products prod2 = new Products.Builder()
                     .setMake("Samsung")
                     .setModel("S4-Mini")
                     .build();
+        Unit un2 = new Unit.Builder()
+                .setPurchaseDate("08-07-1991")
+                .setSn("123A323")
+                .setProductID(prod2.getProductID())
+                .build();
+        
         Products prod3 = new Products.Builder()
                     .setMake("LG")
                     .setModel("G2")
                     .build();
+        Unit un3 = new Unit.Builder()
+                .setPurchaseDate("08-07-1991")
+                .setSn("123A323")
+                .setProductID(prod3.getProductID())
+                .build();
+        unitRepo.save(un1); 
         productsRepo.save(prod1); 
-        productsRepo.save(prod2); 
-        productsRepo.save(prod3); 
+        unitRepo.save(un2);
+        productsRepo.save(prod2);
+        unitRepo.save(un3);
+        productsRepo.save(prod3);
 
         List<Products> productList = new ArrayList<>();
-        productList = displayAllProductsService.getAllProducts();
+        productList = displayProductsMakePurchasedOnService.getProductsMakePurchasedOn("Samsung", "08-07-1991");//make, purchasedOn
 
-        Assert.assertEquals(productList.size(), 3);
+        Assert.assertEquals(productList.size(), 2);
 
     }
     
@@ -85,5 +108,7 @@ public class DisplayProductsMakePurchasedOnTest {
     public void tearDownMethod() throws Exception {
         productsRepo = ctx.getBean(ProductsRepository.class);
         productsRepo.deleteAll();
+        unitRepo = ctx.getBean(UnitRepository.class);
+        unitRepo.deleteAll();
     }
 }

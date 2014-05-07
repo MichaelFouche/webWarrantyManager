@@ -7,6 +7,7 @@
 package fouche.webwarrantymanager.test.services.products;
 
 import com.fouche.webwarrantymanager.domain.Products;
+import com.fouche.webwarrantymanager.domain.Unit;
 import com.fouche.webwarrantymanager.repository.ProductsRepository;
 import com.fouche.webwarrantymanager.services.products.DisplayAllProductsService;
 import fouche.webwarrantymanager.test.ConnectionConfigTest;
@@ -49,17 +50,23 @@ public class DisplayAllProductsTest {
                     .setMake("Samsung")
                     .setModel("S4")
                     .build();
+        
+        
         Products prod2 = new Products.Builder()
                     .setMake("Samsung")
-                    .setModel("S4-Mini")
+                    .setModel("S4")
                     .build();
+        
+        
         Products prod3 = new Products.Builder()
-                    .setMake("LG")
-                    .setModel("G2")
+                    .setMake("Samsung")
+                    .setModel("S4")
                     .build();
+        
         productsRepo.save(prod1); 
         productsRepo.save(prod2); 
         productsRepo.save(prod3); 
+         
 
         List<Products> productList = new ArrayList<>();
         productList = displayAllProductsService.getAllProducts();
