@@ -6,6 +6,7 @@ package fouche.webwarrantymanager.test;
  * and open the template in the editor.
  */
 import com.fouche.webwarrantymanager.app.conf.ConnectionConfig;
+import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.domain.Retailer;
 import com.fouche.webwarrantymanager.domain.Unit;
@@ -58,7 +59,7 @@ public class TestDatabase {
     // public void hello() {}
 
     @Test
-    public void createUnit(){
+    public void createUnitTestDB(){
         
         unitRepo = ctx.getBean(UnitRepository.class);
         productsRepo = ctx.getBean(ProductsRepository.class);
@@ -119,16 +120,16 @@ public class TestDatabase {
         Assert.assertNotNull(productID);
         Assert.assertNotNull(userID);
     }
-    @Test(dependsOnMethods = "createUnit")
-    public void readUnit(){
+    @Test(dependsOnMethods = "createUnitTestDB")
+    public void readUnitTestDB(){
         unitRepo = ctx.getBean(UnitRepository.class);
         Unit un = unitRepo.findOne(unitID);
         
         Assert.assertEquals(un.getPurchaseDate(), "08-07-1991");
     }
     
-    @Test(dependsOnMethods = "readUnit")
-    private void updateUnit(){
+    @Test(dependsOnMethods = "readUnitTestDB")
+    private void updateUnitTestDB(){
         unitRepo = ctx.getBean(UnitRepository.class);
         Unit un = unitRepo.findOne(unitID);
         unitID = un.getUnitID();
@@ -142,8 +143,8 @@ public class TestDatabase {
         Assert.assertEquals(unUp.getPurchaseDate(), "12-2-2014");
     }
     
-    @Test(dependsOnMethods = "updateUnit")
-    private void deleteUnit(){
+    @Test(dependsOnMethods = "updateUnitTestDB")
+    private void deleteUnitTestDB(){
         unitRepo = ctx.getBean(UnitRepository.class);
         unitRepo.delete(unitID);
        // productsRepo.delete(retailerID);

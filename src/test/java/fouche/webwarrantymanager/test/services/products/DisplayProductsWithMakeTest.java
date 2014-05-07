@@ -64,8 +64,8 @@ public class DisplayProductsWithMakeTest {
         List<Products> productList = new ArrayList<>();
         productList = displayAllProductsService.getAllProducts();
 
-        Assert.assertEquals(productList.get(0).getMake(), 3);
-
+        Assert.assertEquals(productList.get(0).getMake(), "Samsung");
+        Assert.assertEquals(productList.size(), 3);
     }
     
     @BeforeClass
