@@ -4,14 +4,15 @@
  * and open the template in the editor.
  */
 
-package fouche.webwarrantymanager.test;
+package fouche.webwarrantymanager.test.services.crudTest;
 
-import com.fouche.webwarrantymanager.app.conf.ConnectionConfig;
+import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.domain.Unit;
 import com.fouche.webwarrantymanager.repository.ProductsRepository;
 import com.fouche.webwarrantymanager.repository.UnitRepository;
-import static fouche.webwarrantymanager.test.TestDatabase.ctx;
+import fouche.webwarrantymanager.test.ConnectionConfigTest;
+import static fouche.webwarrantymanager.test.services.crudTest.TestDatabase.ctx;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;
 import static org.testng.Assert.*;
@@ -40,7 +41,7 @@ public class TestProducts {
     // @Test
     // public void hello() {}
 
-    @Test
+    @Test  (enabled = false)
     public void createUnit(){
     unitRepo = ctx.getBean(UnitRepository.class);
     productsRepo = ctx.getBean(ProductsRepository.class);

@@ -1,12 +1,10 @@
-package fouche.webwarrantymanager.test;
+package fouche.webwarrantymanager.test.services.crudTest;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import com.fouche.webwarrantymanager.app.conf.ConnectionConfig;
-import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.domain.Retailer;
 import com.fouche.webwarrantymanager.domain.Unit;
@@ -17,6 +15,7 @@ import com.fouche.webwarrantymanager.repository.RetailerRepository;
 import com.fouche.webwarrantymanager.repository.UnitRepository;
 import com.fouche.webwarrantymanager.repository.UserRepository;
 import com.fouche.webwarrantymanager.repository.WarrantyRepository;
+import com.fouche.webwarrantymanager.app.conf.ConnectionConfig;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -58,7 +57,7 @@ public class TestDatabase {
     // @Test
     // public void hello() {}
 
-    @Test
+    @Test (enabled = true)
     public void createUnitTestDB(){
         
         unitRepo = ctx.getBean(UnitRepository.class);
@@ -73,7 +72,7 @@ public class TestDatabase {
                 .build();
         
         Users us = new Users.Builder() 
-                .setUserID(un.getUnitID())
+                .setUserID(un.getUserID())
                 .setEmail("user@email.com")
                 .setPwd("")
                 .setName("")
@@ -120,12 +119,12 @@ public class TestDatabase {
         Assert.assertNotNull(productID);
         Assert.assertNotNull(userID);
     }
-    @Test(dependsOnMethods = "createUnitTestDB")
+    @Test (dependsOnMethods = "createUnitTestDB") 
     public void readUnitTestDB(){
         unitRepo = ctx.getBean(UnitRepository.class);
         Unit un = unitRepo.findOne(unitID);
-        
-        Assert.assertEquals(un.getPurchaseDate(), "08-07-1991");
+        System.out.println("Current unitID"+unitID+"\n"+un.getSn()+"\n");
+        Assert.assertEquals(un.getSn(), "123A321");
     }
     
     @Test(dependsOnMethods = "readUnitTestDB")
@@ -155,7 +154,7 @@ public class TestDatabase {
     
     @BeforeClass
     public static void setUpClass() throws Exception {
-        ctx = new AnnotationConfigApplicationContext(ConnectionConfigTest.class);
+        ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);
     }
 
     @AfterClass

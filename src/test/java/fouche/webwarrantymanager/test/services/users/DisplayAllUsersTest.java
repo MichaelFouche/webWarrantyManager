@@ -10,7 +10,7 @@ import com.fouche.webwarrantymanager.domain.Users;
 import com.fouche.webwarrantymanager.repository.UserRepository;
 import com.fouche.webwarrantymanager.services.users.DisplayAllUsersService;
 import fouche.webwarrantymanager.test.ConnectionConfigTest;
-import static fouche.webwarrantymanager.test.TestDatabase.ctx;
+import static fouche.webwarrantymanager.test.services.crudTest.TestDatabase.ctx;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.context.ApplicationContext;
