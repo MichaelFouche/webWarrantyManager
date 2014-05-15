@@ -65,8 +65,8 @@ public class TestProducts {
     public void readUnit(){
         productsRepo = ctx.getBean(ProductsRepository.class);
         Products pr = productsRepo.findOne(productID);
-       // Assert.assertNotNull(pr.getModel());
-       // Assert.assertEquals(pr.getModel(), "S4");
+        Assert.assertNotNull(pr.getModel());
+        Assert.assertEquals(pr.getModel(), "S4");
     }
     
     @Test(enabled = false,dependsOnMethods = "readUnit")
@@ -108,11 +108,11 @@ public class TestProducts {
     public void setUpMethod() throws Exception {
     }
 
-    @AfterMethod
+    @AfterMethod 
     public void tearDownMethod() throws Exception {
         unitRepo = ctx.getBean(UnitRepository.class);
         productsRepo = ctx.getBean(ProductsRepository.class);
-    //    unitRepo.deleteAll();
-      //  productsRepo.deleteAll();
+       // unitRepo.deleteAll();
+       // productsRepo.deleteAll();
     }
 }
