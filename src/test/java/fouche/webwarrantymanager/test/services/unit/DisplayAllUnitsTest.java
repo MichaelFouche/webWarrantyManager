@@ -30,6 +30,7 @@ public class DisplayAllUnitsTest {
     private static ApplicationContext ctx;
     private DisplayAllUnitsService displayAllUnitsService;
     private UnitRepository unitRepo;
+    private Long unitID;
     public DisplayAllUnitsTest() {
     }
 
@@ -59,14 +60,20 @@ public class DisplayAllUnitsTest {
         unitRepo.save(un1); 
         unitRepo.save(un2); 
         unitRepo.save(un3); 
-
+        unitID = un1.getUnitID();
         List<Unit> unitList = new ArrayList<>();
         unitList = displayAllUnitsService.getAllUnits();
 
         Assert.assertEquals(unitList.size(), 3);
 
     }
-    
+    @Test(dependsOnMethods = "getAllUnits")
+    public void readUnitTestDB(){
+        unitRepo = ctx.getBean(UnitRepository.class);
+        Unit un = unitRepo.findOne(unitID);
+     //   System.out.println("Current unitID"+unitID+"\n"+un.getSn()+"\n");
+        Assert.assertEquals(un.getSn(), "123A323");
+    }
     @BeforeClass
     public static void setUpClass() throws Exception {
         ctx = new AnnotationConfigApplicationContext(ConnectionConfigTest.class);
@@ -83,6 +90,6 @@ public class DisplayAllUnitsTest {
     @AfterMethod
     public void tearDownMethod() throws Exception {
         unitRepo = ctx.getBean(UnitRepository.class);
-        unitRepo.deleteAll();
+        //unitRepo.deleteAll();
     }
 }

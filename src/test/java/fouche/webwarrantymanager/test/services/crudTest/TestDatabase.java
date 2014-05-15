@@ -15,7 +15,7 @@ import com.fouche.webwarrantymanager.repository.RetailerRepository;
 import com.fouche.webwarrantymanager.repository.UnitRepository;
 import com.fouche.webwarrantymanager.repository.UserRepository;
 import com.fouche.webwarrantymanager.repository.WarrantyRepository;
-import com.fouche.webwarrantymanager.app.conf.ConnectionConfig;
+import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -154,7 +154,7 @@ public class TestDatabase {
     
     @BeforeClass
     public static void setUpClass() throws Exception {
-        ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);
+        ctx = new AnnotationConfigApplicationContext(ConnectionConfigTest.class);
     }
 
     @AfterClass
@@ -173,10 +173,10 @@ public class TestDatabase {
         userRepo = ctx.getBean(UserRepository.class);       
         warrantyRepo = ctx.getBean(WarrantyRepository.class);
         
-        unitRepo.deleteAll();
+    /*    unitRepo.deleteAll();
         productsRepo.deleteAll();
         retailerRepo.deleteAll();
         userRepo.deleteAll();
-        warrantyRepo.deleteAll();
+        warrantyRepo.deleteAll();*/
     }
 }

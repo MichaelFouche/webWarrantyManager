@@ -11,7 +11,6 @@ import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.domain.Unit;
 import com.fouche.webwarrantymanager.repository.ProductsRepository;
 import com.fouche.webwarrantymanager.repository.UnitRepository;
-import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import static fouche.webwarrantymanager.test.services.crudTest.TestDatabase.ctx;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;
@@ -113,7 +112,7 @@ public class TestProducts {
     public void tearDownMethod() throws Exception {
         unitRepo = ctx.getBean(UnitRepository.class);
         productsRepo = ctx.getBean(ProductsRepository.class);
-        unitRepo.deleteAll();
-        productsRepo.deleteAll();
+    //    unitRepo.deleteAll();
+      //  productsRepo.deleteAll();
     }
 }
