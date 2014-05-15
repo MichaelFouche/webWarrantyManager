@@ -61,7 +61,7 @@ public class TestProducts {
     productID = prod.getProductID();
     }
     
-    @Test(dependsOnMethods = "createUnit")
+    @Test(enabled = false, dependsOnMethods = "createUnit")
     public void readUnit(){
         productsRepo = ctx.getBean(ProductsRepository.class);
         Products pr = productsRepo.findOne(productID);
@@ -69,7 +69,7 @@ public class TestProducts {
        // Assert.assertEquals(pr.getModel(), "S4");
     }
     
-    @Test(dependsOnMethods = "readUnit")
+    @Test(enabled = false,dependsOnMethods = "readUnit")
     private void updateUnit(){
         productsRepo = ctx.getBean(ProductsRepository.class);
         Products pr = productsRepo.findOne(productID);
@@ -84,7 +84,7 @@ public class TestProducts {
         Assert.assertEquals(prUp.getModel(), "S4-mini");
     }
     
-    @Test(dependsOnMethods = "updateUnit")
+    @Test(enabled = false, dependsOnMethods = "updateUnit")
     private void deleteUnit(){
         productsRepo = ctx.getBean(ProductsRepository.class);        
         productsRepo.delete(productID);
