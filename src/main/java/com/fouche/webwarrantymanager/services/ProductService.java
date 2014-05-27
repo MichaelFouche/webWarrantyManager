@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.fouche.webwarrantymanager.services.products;
+package com.fouche.webwarrantymanager.services;
 
 import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.services.Services;

@@ -10,7 +10,7 @@ import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.domain.Unit;
 import com.fouche.webwarrantymanager.repository.ProductsRepository;
 import com.fouche.webwarrantymanager.repository.UnitRepository;
-import com.fouche.webwarrantymanager.services.products.ProductService;
+import com.fouche.webwarrantymanager.services.ProductService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
