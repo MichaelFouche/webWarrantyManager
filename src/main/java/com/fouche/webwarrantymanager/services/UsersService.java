@@ -6,10 +6,16 @@
 
 package com.fouche.webwarrantymanager.services;
 
+import com.fouche.webwarrantymanager.domain.Users;
+import java.util.List;
+
 /**
  *
  * @author foosh
  */
-public interface UsersService {
-    
+public interface UsersService extends Services<Users, Long>{
+    public List<Users> getUsersWithUnits();
+    public List<Users> getUserWithSurname(String surname);
+    public List<Users> getUserWithId(Long id);
+    public List<Users> getAllUsers();
 }

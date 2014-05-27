@@ -6,10 +6,14 @@
 
 package com.fouche.webwarrantymanager.services;
 
+import com.fouche.webwarrantymanager.domain.Warranty;
+import java.util.List;
+
 /**
  *
  * @author foosh
  */
-public interface WarrantyService {
-    
+public interface WarrantyService extends Services<Warranty, Long>{
+     public List<Warranty> getWarrantyWithId(Long id);
+     public List<Warranty> getAllWarranty();
 }

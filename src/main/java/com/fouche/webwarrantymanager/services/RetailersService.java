@@ -6,10 +6,15 @@
 
 package com.fouche.webwarrantymanager.services;
 
+import com.fouche.webwarrantymanager.domain.Retailer;
+import java.util.List;
+
 /**
  *
  * @author foosh
  */
-public interface RetailersService {
-    
+public interface RetailersService extends Services<Retailer, Long>{
+    public List<Retailer> getRetailersWithName(String name);
+    public List<Retailer> getAllRetailers();
+    public List<Retailer> getRetailersWithId(Long id);
 }
