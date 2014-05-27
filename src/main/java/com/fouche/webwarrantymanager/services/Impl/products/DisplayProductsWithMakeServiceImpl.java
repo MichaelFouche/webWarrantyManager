@@ -24,14 +24,33 @@ public class DisplayProductsWithMakeServiceImpl implements DisplayProductsWithMa
     private ProductsRepository productsRepository;
     
     @Override
-    public List<Products> getProductsWithMake(String make){
-        List<Products> products = new ArrayList<>();
-        List<Products> allProducts = productsRepository.findAll();
-        for (Products  productObject : allProducts) {   
-            if(productObject.getMake().equals(make)){
-                products.add(productObject);            
-            }
-        }        
-        return products;
-    }     
+    public Products find(Long id) {
+        return productsRepository.findOne(id);
+    }
+    
+    @Override
+    public Products persist(Products entity) {
+        return productsRepository.save(entity); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Products merge(Products entity) {
+
+        if (entity.getProductID() != null) {
+            return productsRepository.save(entity);
+        }
+        return null;
+    }
+
+    @Override
+    public void remove(Products entity) {
+        productsRepository.delete(entity); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public List<Products> findAll() {
+        return productsRepository.findAll(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+      
 }

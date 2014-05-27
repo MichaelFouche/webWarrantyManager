@@ -25,20 +25,34 @@ public class DisplayProductsMakePurchasedOnServiceImpl implements DisplayProduct
     @Autowired
     private ProductsRepository productsRepository;
     private UnitRepository unitRepository;
+    @Override
+    public Products find(Long id) {
+        return productsRepository.findOne(id);
+    }
     
     @Override
-    public List<Products> getProductsMakePurchasedOn(String make, String purchasedOn){
-        List<Products> products = new ArrayList<>();
-        List<Products> allProducts = productsRepository.findAll();
-        List<Unit> allUnits = unitRepository.findAll();        
-        for (Products  productObject : allProducts) {  
-            for(Unit unitObject : allUnits){
-                if(productObject.getMake().equals(make)&&unitObject.getPurchaseDate().equals(purchasedOn)){
-                products.add(productObject);   
-                }
-            }
-                     
-        }        
-        return products;
-    }     
+    public Products persist(Products entity) {
+        return productsRepository.save(entity); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Products merge(Products entity) {
+
+        if (entity.getProductID() != null) {
+            return productsRepository.save(entity);
+        }
+        return null;
+    }
+
+    @Override
+    public void remove(Products entity) {
+        productsRepository.delete(entity); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public List<Products> findAll() {
+        return productsRepository.findAll(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }

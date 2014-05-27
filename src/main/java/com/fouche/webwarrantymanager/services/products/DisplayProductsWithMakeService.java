@@ -7,12 +7,13 @@
 package com.fouche.webwarrantymanager.services.products;
 
 import com.fouche.webwarrantymanager.domain.Products;
+import com.fouche.webwarrantymanager.services.Services;
 import java.util.List;
 
 /**
  *
  * @author foosh
  */
-public interface DisplayProductsWithMakeService {
-    public List<Products> getProductsWithMake(String make);
+public interface DisplayProductsWithMakeService extends Services<Products, Long>{
+    
 }

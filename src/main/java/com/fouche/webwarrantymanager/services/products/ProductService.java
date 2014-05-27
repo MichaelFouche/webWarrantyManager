@@ -14,6 +14,10 @@ import java.util.List;
  *
  * @author foosh
  */
-public interface DisplayAllProductsService extends Services<Products, Long>{
-    
+public interface ProductService extends Services<Products, Long>{
+    public List<Products> getAllProducts();
+    public List<Products> getProductsWithModel(String model);
+    public List<Products> getProductsMakePurchasedOn(String make, String purchasedOn);
+    public List<Products> getProductsWithId(Long id);
+    public List<Products> getProductsWithMake(String make);
 }

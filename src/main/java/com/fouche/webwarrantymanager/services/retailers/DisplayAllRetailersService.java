@@ -7,12 +7,13 @@
 package com.fouche.webwarrantymanager.services.retailers;
 
 import com.fouche.webwarrantymanager.domain.Retailer;
+import com.fouche.webwarrantymanager.services.Services;
 import java.util.List;
 
 /**
  *
  * @author foosh
  */
-public interface DisplayAllRetailersService {
+public interface DisplayAllRetailersService extends Services<Retailer, Long>{
     public List<Retailer> getAllRetailers();
 }
