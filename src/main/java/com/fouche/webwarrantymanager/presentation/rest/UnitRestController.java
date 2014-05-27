@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -21,21 +22,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value = "api/unit")
 public class UnitRestController {
  
-    @RequestMapping(value = "create")
+    @RequestMapping(value = "create",method = RequestMethod.POST)
     @ResponseBody
     public String create(@RequestBody Unit unit) {
         System.out.println(" Create the Called ");
-        return "";
+        return "..";
     }
 
-    @RequestMapping(value = "update")
+    @RequestMapping(value = "update",method = RequestMethod.PUT)
     @ResponseBody
     public String update(@RequestBody Unit unit) {
         System.out.println(" Update Called ");
         return "";
     }
     
-    @RequestMapping(value = "unit/{id}")
+    @RequestMapping(value = "unit/{id}",method = RequestMethod.GET)
     @ResponseBody
     public Unit getPerson(@PathVariable String id) {
         System.out.println(" ID called ");

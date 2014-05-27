@@ -43,8 +43,6 @@ public class UnitRestControllerTest {
         ResponseEntity<String> responseEntity = restTemplate.
                 exchange(URL+"api/unit/create", HttpMethod.POST, requestEntity, String.class);
 
-     
-        
     }
     
     private HttpEntity<?> getHttpEntity(){
