@@ -8,7 +8,7 @@ package fouche.webwarrantymanager.test.services.products;
 
 import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.repository.ProductsRepository;
-import com.fouche.webwarrantymanager.services.products.DisplayProductsWithIdService;
+import com.fouche.webwarrantymanager.services.ProductService;
 import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ import org.testng.annotations.Test;
  */
 public class DisplayProductsWithIdTest {
     private static ApplicationContext ctx;
-    private DisplayProductsWithIdService displayProductsWithIdService;
+    private ProductService productService;
     private ProductsRepository productsRepo;
     private Long id1, id2, id3;
     public DisplayProductsWithIdTest() {
@@ -43,7 +43,7 @@ public class DisplayProductsWithIdTest {
     @Test
     public void getAllProducts() {
         productsRepo = ctx.getBean(ProductsRepository.class);
-        displayProductsWithIdService = ctx.getBean(DisplayProductsWithIdService.class);
+        productService = ctx.getBean(ProductService.class);
         
         Products prod1 = new Products.Builder()
                     .setMake("Samsung")
@@ -65,9 +65,9 @@ public class DisplayProductsWithIdTest {
         productsRepo.save(prod3); 
 
         List<Products> productList = new ArrayList<>();
-        productList = displayProductsWithIdService.getProductsWithId(id1);
+        productList = productService.getProductsWithId(id1);
 
-        Assert.assertEquals(displayProductsWithIdService.getProductsWithId(id1),productList );
+        Assert.assertEquals(productService.getProductsWithId(id1),productList );
 
     }
     

@@ -8,7 +8,7 @@ package fouche.webwarrantymanager.test.services.unit;
 
 import com.fouche.webwarrantymanager.domain.Unit;
 import com.fouche.webwarrantymanager.repository.UnitRepository;
-import com.fouche.webwarrantymanager.services.unit.DisplayAllUnitsService;
+import com.fouche.webwarrantymanager.services.UnitsService;
 import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ import org.testng.annotations.Test;
  */
 public class DisplayAllUnitsTest {
     private static ApplicationContext ctx;
-    private DisplayAllUnitsService displayAllUnitsService;
+    private UnitsService unitsService;
     private UnitRepository unitRepo;
     private Long unitID;
     public DisplayAllUnitsTest() {
@@ -43,7 +43,7 @@ public class DisplayAllUnitsTest {
     @Test
     public void getAllUnits() {
         unitRepo = ctx.getBean(UnitRepository.class);
-        displayAllUnitsService = ctx.getBean(DisplayAllUnitsService.class);
+        unitsService = ctx.getBean(UnitsService.class);
         
         Unit un1 = new Unit.Builder()
                 .setPurchaseDate("08-07-1991")
@@ -62,7 +62,7 @@ public class DisplayAllUnitsTest {
         unitRepo.save(un3); 
         unitID = un1.getUnitID();
         List<Unit> unitList = new ArrayList<>();
-        unitList = displayAllUnitsService.getAllUnits();
+        unitList = unitsService.getAllUnits();
 
         Assert.assertEquals(unitList.size(), 3);
 

@@ -8,7 +8,7 @@ package fouche.webwarrantymanager.test.services.retailers;
 
 import com.fouche.webwarrantymanager.domain.Retailer;
 import com.fouche.webwarrantymanager.repository.RetailerRepository;
-import com.fouche.webwarrantymanager.services.retailers.DisplayAllRetailersService;
+import com.fouche.webwarrantymanager.services.RetailersService;
 import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ import org.testng.annotations.Test;
 public class DisplayAllRetailersTest {
     
     private static ApplicationContext ctx;
-    private DisplayAllRetailersService displayAllRetailersService;
+    private RetailersService retailersService;
     private RetailerRepository retailerRepo;
     
     public DisplayAllRetailersTest() {
@@ -44,7 +44,7 @@ public class DisplayAllRetailersTest {
     @Test
     public void getAllRetailers() {
         retailerRepo = ctx.getBean(RetailerRepository.class);
-        displayAllRetailersService = ctx.getBean(DisplayAllRetailersService.class);
+        retailersService = ctx.getBean(RetailersService.class);
         
         Retailer retail1 = new Retailer.Builder()
                 .setName("Checkers")
@@ -66,7 +66,7 @@ public class DisplayAllRetailersTest {
         retailerRepo.save(retail3); 
 
         List<Retailer> retailList = new ArrayList<>();
-        retailList = displayAllRetailersService.getAllRetailers();
+        retailList = retailersService.getAllRetailers();
 
         Assert.assertEquals(retailList.size(), 3);
 

@@ -8,7 +8,7 @@ package fouche.webwarrantymanager.test.services.warranty;
 
 import com.fouche.webwarrantymanager.domain.Warranty;
 import com.fouche.webwarrantymanager.repository.WarrantyRepository;
-import com.fouche.webwarrantymanager.services.warranty.DisplayAllWarrantyService;
+import com.fouche.webwarrantymanager.services.WarrantyService;
 import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ import org.testng.annotations.Test;
  */
 public class DisplayAllWarrantyTest {
     private static ApplicationContext ctx;
-    private DisplayAllWarrantyService displayAllWarrantyService;
+    private WarrantyService warrantyService;
     private WarrantyRepository warrantyRepo;
     public DisplayAllWarrantyTest() {
     }
@@ -42,7 +42,7 @@ public class DisplayAllWarrantyTest {
     @Test
     public void getAllWarranty() {
         warrantyRepo = ctx.getBean(WarrantyRepository.class);
-        displayAllWarrantyService = ctx.getBean(DisplayAllWarrantyService.class);
+        warrantyService = ctx.getBean(WarrantyService.class);
         Warranty warr1 = new Warranty.Builder()
                 .setReplaceDuration(5)
                 .setRepairDuration(5)
@@ -59,7 +59,7 @@ public class DisplayAllWarrantyTest {
         warrantyRepo.save(warr2);
         warrantyRepo.save(warr3);
         List<Warranty> warrantyList = new ArrayList<>();
-        warrantyList = displayAllWarrantyService.getAllWarranty();
+        warrantyList = warrantyService.getAllWarranty();
         Assert.assertEquals(warrantyList.size(), 3);
     }
     

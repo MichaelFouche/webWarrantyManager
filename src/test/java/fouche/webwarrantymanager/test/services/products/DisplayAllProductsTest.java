@@ -9,7 +9,7 @@ package fouche.webwarrantymanager.test.services.products;
 import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.domain.Unit;
 import com.fouche.webwarrantymanager.repository.ProductsRepository;
-import com.fouche.webwarrantymanager.services.products.DisplayAllProductsService;
+import com.fouche.webwarrantymanager.services.ProductService;
 import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ import org.testng.annotations.Test;
  */
 public class DisplayAllProductsTest {
     private static ApplicationContext ctx;
-    private DisplayAllProductsService displayAllProductsService;
+    private ProductService productService;
     private ProductsRepository productsRepo;
     
     public DisplayAllProductsTest() {
@@ -44,7 +44,7 @@ public class DisplayAllProductsTest {
     @Test
     public void getAllProducts() {
         productsRepo = ctx.getBean(ProductsRepository.class);
-        displayAllProductsService = ctx.getBean(DisplayAllProductsService.class);
+        productService = ctx.getBean(ProductService.class);
         
         Products prod1 = new Products.Builder()
                     .setMake("Samsung")
@@ -69,7 +69,7 @@ public class DisplayAllProductsTest {
          
 
         List<Products> productList = new ArrayList<>();
-        productList = displayAllProductsService.getAllProducts();
+        productList = productService.getAllProducts();
 
         Assert.assertEquals(productList.size(), 3);
 

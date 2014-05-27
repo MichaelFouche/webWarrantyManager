@@ -8,7 +8,7 @@ package fouche.webwarrantymanager.test.services.users;
 
 import com.fouche.webwarrantymanager.domain.Users;
 import com.fouche.webwarrantymanager.repository.UserRepository;
-import com.fouche.webwarrantymanager.services.users.DisplayAllUsersService;
+import com.fouche.webwarrantymanager.services.UsersService;
 import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import static fouche.webwarrantymanager.test.services.crudTest.TestDatabase.ctx;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ import org.testng.annotations.Test;
  */
 public class DisplayAllUsersTest {
     private static ApplicationContext ctx;
-    private DisplayAllUsersService displayAllUsersService;
+    private UsersService usersService;
     private UserRepository userRepo;
     public DisplayAllUsersTest() {
     }
@@ -43,7 +43,7 @@ public class DisplayAllUsersTest {
     @Test
     public void getAllUsers() {
         userRepo = ctx.getBean(UserRepository.class); 
-        displayAllUsersService = ctx.getBean(DisplayAllUsersService.class);
+        usersService = ctx.getBean(UsersService.class);
         Users us1 = new Users.Builder() 
                 .setEmail("user@email.com")
                 .setPwd("")
@@ -73,7 +73,7 @@ public class DisplayAllUsersTest {
         userRepo.save(us3);
         
         List<Users> unitList = new ArrayList<>();
-        unitList = displayAllUsersService.getAllUsers();
+        unitList = usersService.getAllUsers();
         Assert.assertEquals(unitList.size(), 3);
     }
     

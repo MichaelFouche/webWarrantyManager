@@ -10,7 +10,7 @@ import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.domain.Unit;
 import com.fouche.webwarrantymanager.repository.ProductsRepository;
 import com.fouche.webwarrantymanager.repository.UnitRepository;
-import com.fouche.webwarrantymanager.services.products.DisplayProductsMakePurchasedOnService;
+import com.fouche.webwarrantymanager.services.ProductService;
 import fouche.webwarrantymanager.test.ConnectionConfigTest;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ import org.testng.annotations.Test;
  */
 public class DisplayProductsMakePurchasedOnTest {
     private static ApplicationContext ctx;
-    private DisplayProductsMakePurchasedOnService displayProductsMakePurchasedOnService;
+    private ProductService productService;
     private UnitRepository unitRepo;
     private ProductsRepository productsRepo;
     
@@ -46,7 +46,7 @@ public class DisplayProductsMakePurchasedOnTest {
     @Test
     public void getProductsMakePurchasedOnService() {
         productsRepo = ctx.getBean(ProductsRepository.class);
-        displayProductsMakePurchasedOnService = ctx.getBean(DisplayProductsMakePurchasedOnService.class);
+        productService = ctx.getBean(ProductService.class);
         unitRepo = ctx.getBean(UnitRepository.class);
         
         Products prod1 = new Products.Builder()
