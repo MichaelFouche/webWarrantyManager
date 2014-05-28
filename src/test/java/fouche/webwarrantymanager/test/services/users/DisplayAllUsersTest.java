@@ -40,7 +40,7 @@ public class DisplayAllUsersTest {
     // @Test
     // public void hello() {}
 
-    @Test
+   // @Test
     public void getAllUsers() {
         userRepo = ctx.getBean(UserRepository.class); 
         usersService = ctx.getBean(UsersService.class);

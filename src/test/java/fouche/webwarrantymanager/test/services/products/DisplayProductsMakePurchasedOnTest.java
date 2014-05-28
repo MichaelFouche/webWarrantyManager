@@ -43,7 +43,7 @@ public class DisplayProductsMakePurchasedOnTest {
     // @Test
     // public void hello() {}
 
-    @Test
+   // @Test
     public void getProductsMakePurchasedOnService() {
         productsRepo = ctx.getBean(ProductsRepository.class);
         productService = ctx.getBean(ProductService.class);

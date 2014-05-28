@@ -41,7 +41,7 @@ public class DisplayAllRetailersTest {
     // @Test
     // public void hello() {}
 
-    @Test
+   // @Test
     public void getAllRetailers() {
         retailerRepo = ctx.getBean(RetailerRepository.class);
         retailersService = ctx.getBean(RetailersService.class);

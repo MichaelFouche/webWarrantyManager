@@ -7,6 +7,8 @@
 package com.fouche.webwarrantymanager.presentation.rest;
 
 import com.fouche.webwarrantymanager.domain.Unit;
+import com.fouche.webwarrantymanager.services.UnitsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,9 +24,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value = "api/unit")
 public class UnitRestController {
  
+    @Autowired
+    private UnitsService unitsService;
+    
     @RequestMapping(value = "create",method = RequestMethod.POST)
     @ResponseBody
     public String create(@RequestBody Unit unit) {
+        unitsService.persist(unit);
         System.out.println(" Create the Called ");
         return "..";
     }

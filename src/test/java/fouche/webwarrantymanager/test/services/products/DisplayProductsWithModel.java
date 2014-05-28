@@ -40,7 +40,7 @@ public class DisplayProductsWithModel {
     // @Test
     // public void hello() {}
 
-    @Test
+   // @Test
     public void getAllProducts() {
         productsRepo = ctx.getBean(ProductsRepository.class);
         productService = ctx.getBean(ProductService.class);
