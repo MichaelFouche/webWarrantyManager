@@ -27,7 +27,10 @@ public class UnitRestController {
     @Autowired
     private UnitsService unitsService;
     
-    @RequestMapping(value = "create",method = RequestMethod.POST)
+    //@Autowired
+    
+    
+    @RequestMapping(value = "create",method = RequestMethod.PUT)
     @ResponseBody
     public String create(@RequestBody Unit unit) {
         unitsService.persist(unit);

@@ -25,8 +25,8 @@ public class ProductServiceImpl implements ProductService{
     @Autowired
     private ProductsRepository productsRepository;
     
-    @Autowired
-    private UnitRepository unitRepository;
+    //@Autowired
+    //private UnitRepository unitRepository;
     @Override
     public Products find(Long id) {
         return productsRepository.findOne(id);
@@ -102,7 +102,7 @@ public class ProductServiceImpl implements ProductService{
         return products;
     }   
     
-    @Override
+   /* @Override
     public List<Products> getProductsMakePurchasedOn(String make, String purchasedOn){
         List<Products> products = new ArrayList<>();
         List<Products> allProducts = productsRepository.findAll();
@@ -116,5 +116,5 @@ public class ProductServiceImpl implements ProductService{
                      
         }        
         return products;
-    }     
+    }  */   
 }

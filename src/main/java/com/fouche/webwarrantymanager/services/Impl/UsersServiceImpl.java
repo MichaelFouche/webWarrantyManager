@@ -25,9 +25,9 @@ public class UsersServiceImpl implements UsersService{
     @Autowired
     private UserRepository userRepository;
     
-    @Autowired
+  /*  @Autowired
     private UnitRepository unitRepository;
-    
+    */
     @Override
     public Users find(Long id) {
         return userRepository.findOne(id);
@@ -94,7 +94,7 @@ public class UsersServiceImpl implements UsersService{
     
     
     
-    @Override
+  /*  @Override
     public List<Users> getUsersWithUnits() {
         List<Users> user = new ArrayList<>();
         List<Unit> allUnits = unitRepository.findAll();
@@ -108,5 +108,5 @@ public class UsersServiceImpl implements UsersService{
             }    
         }
         return user;
-    }
+    }*/
 }
