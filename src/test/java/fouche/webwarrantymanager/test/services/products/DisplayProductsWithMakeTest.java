@@ -40,9 +40,10 @@ public class DisplayProductsWithMakeTest {
     // @Test
     // public void hello() {}
 
-   // @Test
+    @Test
     public void getAllProducts() {
         productsRepo = ctx.getBean(ProductsRepository.class);
+        productsRepo.deleteAll();
         productService = ctx.getBean(ProductService.class);
         
         Products prod1 = new Products.Builder()

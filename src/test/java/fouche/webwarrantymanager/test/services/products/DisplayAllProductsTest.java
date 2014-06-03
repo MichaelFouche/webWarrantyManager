@@ -41,11 +41,11 @@ public class DisplayAllProductsTest {
     // @Test
     // public void hello() {}
 
-   // @Test
+    @Test
     public void getAllProducts() {
         productsRepo = ctx.getBean(ProductsRepository.class);
         productService = ctx.getBean(ProductService.class);
-        
+        productsRepo.deleteAll();
         Products prod1 = new Products.Builder()
                     .setMake("Samsung")
                     .setModel("S4")

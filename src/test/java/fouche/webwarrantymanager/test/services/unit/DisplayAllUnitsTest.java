@@ -28,7 +28,7 @@ import org.testng.annotations.Test;
  */
 public class DisplayAllUnitsTest {
     private static ApplicationContext ctx;
-    private UnitsService unitsService;
+    //private UnitsService unitsService;
     private UnitRepository unitRepo;
     private Long unitID;
     public DisplayAllUnitsTest() {
@@ -39,41 +39,52 @@ public class DisplayAllUnitsTest {
     //
     // @Test
     // public void hello() {}
-
     @Test
-    public void getAllUnits() {
-        unitRepo = ctx.getBean(UnitRepository.class);
-        unitsService = ctx.getBean(UnitsService.class);
+    public void createUnit(){
+        unitRepo = ctx.getBean(UnitRepository.class);        
+        //unitsService = ctx.getBean(UnitsService.class);
         
         Unit un1 = new Unit.Builder()
                 .setPurchaseDate("08-07-1991")
                 .setSn("123A323")
                 .build();
-        Unit un2 = new Unit.Builder()
-                .setPurchaseDate("07-07-1991")
-                .setSn("123A322")
-                .build();
-        Unit un3 = new Unit.Builder()
-                .setPurchaseDate("06-07-1991")
-                .setSn("123A321")
-                .build();
+        
         unitRepo.save(un1); 
-        unitRepo.save(un2); 
-        unitRepo.save(un3); 
+        
         unitID = un1.getUnitID();
-        List<Unit> unitList = new ArrayList<>();
-        unitList = unitsService.getAllUnits();
-
-        Assert.assertEquals(unitList.size(), 3);
-
+        Assert.assertNotNull(un1);
+       
     }
-    @Test(dependsOnMethods = "getAllUnits")
-    public void readUnitTestDB(){
+    @Test (dependsOnMethods = "createUnit")
+    public void readUnitTest() {
         unitRepo = ctx.getBean(UnitRepository.class);
-        Unit un = unitRepo.findOne(unitID);
-     //   System.out.println("Current unitID"+unitID+"\n"+un.getSn()+"\n");
-        Assert.assertEquals(un.getSn(), "123A323");
+        Unit obj = unitRepo.findOne(unitID);
+
+        Assert.assertEquals(obj.getSn(), "123A323");
     }
+    @Test(dependsOnMethods = "readUnitTest")
+     private void updateUnit(){
+         unitRepo = ctx.getBean(UnitRepository.class);
+         Unit un = unitRepo.findOne(unitID);
+         unitRepo = ctx.getBean(UnitRepository.class);
+         Unit unpdatedUnit = new Unit.Builder(un.getSn())
+                 .setPurchaseDate("12-2-2014")
+                .build();
+         unitRepo.delete(unitID);
+         unitRepo.save(unpdatedUnit);
+         unitID = unpdatedUnit.getUnitID();
+         Unit unUp = unitRepo.findOne(unitID);
+         Assert.assertEquals(unUp.getPurchaseDate(), "12-2-2014");
+         
+     }
+     @Test(dependsOnMethods = "updateUnit")
+     private void deleteUnit(){
+        unitRepo = ctx.getBean(UnitRepository.class);
+        unitRepo.delete(unitID);
+       
+        Unit un = unitRepo.findOne(unitID);
+        Assert.assertNull(un);
+     }
     @BeforeClass
     public static void setUpClass() throws Exception {
         ctx = new AnnotationConfigApplicationContext(ConnectionConfigTest.class);

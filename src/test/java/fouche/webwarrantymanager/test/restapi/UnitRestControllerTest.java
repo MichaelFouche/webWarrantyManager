@@ -46,7 +46,7 @@ public class UnitRestControllerTest {
         Assert.assertEquals(responseEntity.getStatusCode(), HttpStatus.OK);
 
     }
-    @Test
+    //@Test
     public void testgetAllUnits() {
         HttpEntity<?> requestEntity = getHttpEntity();
         ResponseEntity<Unit[]> responseEntity = restTemplate.exchange(URL + "api/unit/clubs", HttpMethod.GET, requestEntity, Unit[].class);

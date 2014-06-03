@@ -110,7 +110,7 @@ public class ProductServiceImpl implements ProductService{
         for (Products  productObject : allProducts) {  
             for(Unit unitObject : allUnits){
                 if(productObject.getMake().equals(make)&&unitObject.getPurchaseDate().equals(purchasedOn)){
-                products.add(productObject);   
+                    products.add(productObject);   
                 }
             }
                      

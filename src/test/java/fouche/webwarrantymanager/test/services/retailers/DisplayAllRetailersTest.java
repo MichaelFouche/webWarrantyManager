@@ -41,9 +41,10 @@ public class DisplayAllRetailersTest {
     // @Test
     // public void hello() {}
 
-   // @Test
+    @Test
     public void getAllRetailers() {
         retailerRepo = ctx.getBean(RetailerRepository.class);
+        retailerRepo.deleteAll();
         retailersService = ctx.getBean(RetailersService.class);
         
         Retailer retail1 = new Retailer.Builder()

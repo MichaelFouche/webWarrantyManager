@@ -6,6 +6,7 @@
 
 package com.fouche.webwarrantymanager.domain;
 
+import java.io.Serializable;
 import java.rmi.server.UID;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -20,7 +21,7 @@ import javax.persistence.Id;
  */
 
 @Entity
-public class Users {
+public class Users implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

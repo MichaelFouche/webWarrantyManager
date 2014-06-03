@@ -6,6 +6,7 @@
 
 package com.fouche.webwarrantymanager.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.CascadeType;
@@ -22,7 +23,7 @@ import javax.persistence.OneToOne;
  * @author foosh
  */
 @Entity
-public class Unit {
+public class Unit implements Serializable{
     private static final long serialVersionUID = 1L;
     //PRIMARY KEY
     @Id

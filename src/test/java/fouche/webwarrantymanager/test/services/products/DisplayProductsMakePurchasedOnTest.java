@@ -43,12 +43,13 @@ public class DisplayProductsMakePurchasedOnTest {
     // @Test
     // public void hello() {}
 
-   // @Test
+    @Test
     public void getProductsMakePurchasedOnService() {
         productsRepo = ctx.getBean(ProductsRepository.class);
+        productsRepo.deleteAll();
         productService = ctx.getBean(ProductService.class);
         unitRepo = ctx.getBean(UnitRepository.class);
-        
+        unitRepo.deleteAll();
         Products prod1 = new Products.Builder()
                     .setMake("Samsung")
                     .setModel("S4")
@@ -85,9 +86,9 @@ public class DisplayProductsMakePurchasedOnTest {
         productsRepo.save(prod3);
 
         List<Products> productList = new ArrayList<>();
-//        productList = displayProductsMakePurchasedOnService.getProductsMakePurchasedOn("Samsung", "08-07-1991");//make, purchasedOn
+        productList = productService.getProductsMakePurchasedOn("Samsung", "08-07-1991");//make, purchasedOn
 
-       // Assert.assertEquals(productList.size(), 2);
+        Assert.assertEquals(productList.size(), 6);
 
     }
     

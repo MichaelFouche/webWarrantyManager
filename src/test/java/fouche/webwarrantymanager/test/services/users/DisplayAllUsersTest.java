@@ -40,9 +40,10 @@ public class DisplayAllUsersTest {
     // @Test
     // public void hello() {}
 
-   // @Test
+    @Test
     public void getAllUsers() {
         userRepo = ctx.getBean(UserRepository.class); 
+        userRepo.deleteAll();
         usersService = ctx.getBean(UsersService.class);
         Users us1 = new Users.Builder() 
                 .setEmail("user@email.com")

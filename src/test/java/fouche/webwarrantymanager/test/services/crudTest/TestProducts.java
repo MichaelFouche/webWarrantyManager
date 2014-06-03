@@ -40,11 +40,12 @@ public class TestProducts {
     // @Test
     // public void hello() {}
 
-    @Test  (enabled = false)
+   // @Test  (enabled = true)
     public void createUnit(){
     unitRepo = ctx.getBean(UnitRepository.class);
     productsRepo = ctx.getBean(ProductsRepository.class);
-    
+    unitRepo.deleteAll();
+    productsRepo.deleteAll();
     
     Products prod = new Products.Builder()
                 .setMake("Samsung")
@@ -59,9 +60,11 @@ public class TestProducts {
     productsRepo.save(prod); 
     unitID = un.getUnitID();
     productID = prod.getProductID();
+    Assert.assertNotNull(productID);
+    Assert.assertNotNull(unitID);
     }
     
-    @Test(enabled = false, dependsOnMethods = "createUnit")
+    @Test(enabled = true, dependsOnMethods = "createUnit")
     public void readUnit(){
         productsRepo = ctx.getBean(ProductsRepository.class);
         Products pr = productsRepo.findOne(productID);
@@ -69,7 +72,7 @@ public class TestProducts {
         Assert.assertEquals(pr.getModel(), "S4");
     }
     
-    @Test(enabled = false,dependsOnMethods = "readUnit")
+    @Test(enabled = true,dependsOnMethods = "readUnit")
     private void updateUnit(){
         productsRepo = ctx.getBean(ProductsRepository.class);
         Products pr = productsRepo.findOne(productID);
@@ -78,13 +81,13 @@ public class TestProducts {
                 .setModel("S4-mini")
                 .build();        
         productsRepo.save(updateProducts);     
-        productsRepo.delete(unitID);
+        productsRepo.delete(productID);
         productID = updateProducts.getProductID();
         Products prUp = productsRepo.findOne(productID);
         Assert.assertEquals(prUp.getModel(), "S4-mini");
     }
     
-    @Test(enabled = false, dependsOnMethods = "updateUnit")
+    @Test(enabled = true, dependsOnMethods = "updateUnit")
     private void deleteUnit(){
         productsRepo = ctx.getBean(ProductsRepository.class);        
         productsRepo.delete(productID);
@@ -112,7 +115,7 @@ public class TestProducts {
     public void tearDownMethod() throws Exception {
         unitRepo = ctx.getBean(UnitRepository.class);
         productsRepo = ctx.getBean(ProductsRepository.class);
-       // unitRepo.deleteAll();
-       // productsRepo.deleteAll();
+        unitRepo.deleteAll();
+        productsRepo.deleteAll();
     }
 }

@@ -30,6 +30,7 @@ public class DisplayAllWarrantyTest {
     private static ApplicationContext ctx;
     private WarrantyService warrantyService;
     private WarrantyRepository warrantyRepo;
+    
     public DisplayAllWarrantyTest() {
     }
 
@@ -39,9 +40,10 @@ public class DisplayAllWarrantyTest {
     // @Test
     // public void hello() {}
 
-  //  @Test
+    @Test
     public void getAllWarranty() {
         warrantyRepo = ctx.getBean(WarrantyRepository.class);
+        warrantyRepo.deleteAll();
         warrantyService = ctx.getBean(WarrantyService.class);
         Warranty warr1 = new Warranty.Builder()
                 .setReplaceDuration(5)

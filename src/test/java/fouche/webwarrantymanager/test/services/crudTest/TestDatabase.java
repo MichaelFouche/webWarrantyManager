@@ -57,7 +57,7 @@ public class TestDatabase {
     // @Test
     // public void hello() {}
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void createUnitTestDB(){
         
         unitRepo = ctx.getBean(UnitRepository.class);
@@ -119,7 +119,7 @@ public class TestDatabase {
         Assert.assertNotNull(productID);
         Assert.assertNotNull(userID);
     }
-   // @Test (dependsOnMethods = "createUnitTestDB") 
+    @Test (dependsOnMethods = "createUnitTestDB") 
     public void readUnitTestDB(){
         unitRepo = ctx.getBean(UnitRepository.class);
         Unit un = unitRepo.findOne(unitID);
@@ -127,7 +127,7 @@ public class TestDatabase {
         Assert.assertEquals(un.getSn(), "123A321");
     }
     
-   // @Test(dependsOnMethods = "readUnitTestDB")
+    @Test(dependsOnMethods = "readUnitTestDB")
     private void updateUnitTestDB(){
         unitRepo = ctx.getBean(UnitRepository.class);
         Unit un = unitRepo.findOne(unitID);
@@ -142,7 +142,7 @@ public class TestDatabase {
         Assert.assertEquals(unUp.getPurchaseDate(), "12-2-2014");
     }
     
-   // @Test(dependsOnMethods = "updateUnitTestDB")
+    @Test(dependsOnMethods = "updateUnitTestDB")
     private void deleteUnitTestDB(){
         unitRepo = ctx.getBean(UnitRepository.class);
         unitRepo.delete(unitID);
