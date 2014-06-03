@@ -28,7 +28,7 @@ public class UnitRestController {
     private UnitsService unitsService;
     
     //@Autowired
-    
+    /*
     
     @RequestMapping(value = "create",method = RequestMethod.PUT)
     @ResponseBody
@@ -50,5 +50,5 @@ public class UnitRestController {
     public Unit getPerson(@PathVariable String id) {
         System.out.println(" ID called ");
         return null;
-    }
+    }*/
 }
