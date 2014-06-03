@@ -4,6 +4,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1> THIS IS A TEST PAGE</h1>
+        <h1>- Warranty Manager -</h1>
+        <p>
+            <a href="http://localhost:8084/webWarrantyManager/api/product/allProducts">[-] Get JSON objects of all products</a>
+        </p>
     </body>
 </html>
