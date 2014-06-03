@@ -8,6 +8,7 @@ package com.fouche.webwarrantymanager.presentation.rest;
 
 import com.fouche.webwarrantymanager.domain.Products;
 import com.fouche.webwarrantymanager.services.ProductService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,11 +20,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
  *
  * @author foosh
  */
-//@Controller
+@Controller
+@RequestMapping(value = "api/product")
 public class ProductRestController {
-    /*@Autowired
-    private ProductService productService;
     
+    @Autowired
+    private ProductService productService;
+       
     @RequestMapping(value = "create",method = RequestMethod.POST) // This the uri e.g http://localhost:8084/askweb/api/club/create
     @ResponseBody //Converts output or response to JSON String
     public String create(@RequestBody Products products) { // @RequestBody for converting incoming JSON call to Object
@@ -31,5 +34,12 @@ public class ProductRestController {
         
         System.out.println(" Create Called ");
         return "Product Created";
-    }*/
+    }
+    
+    @RequestMapping(value = "allProducts",method = RequestMethod.GET) // Always Put HTTP Method
+    @ResponseBody
+    public List<Products> getProducts() {
+        System.out.println("All blouse");
+        return productService.findAll();
+    }
 }

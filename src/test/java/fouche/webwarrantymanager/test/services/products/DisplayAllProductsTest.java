@@ -91,6 +91,6 @@ public class DisplayAllProductsTest {
     @AfterMethod
     public void tearDownMethod() throws Exception {
         productsRepo = ctx.getBean(ProductsRepository.class);
-        productsRepo.deleteAll();
+        //productsRepo.deleteAll();
     }
 }
