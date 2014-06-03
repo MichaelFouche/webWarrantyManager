@@ -8,6 +8,7 @@ package com.fouche.webwarrantymanager.app.conf;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -24,6 +25,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @author foosh
  */
 @Configuration 
+@ComponentScan("com.fouche.webwarrantymanager")
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.fouche.webwarrantymanager.repository")
 public class ConnectionConfig {
